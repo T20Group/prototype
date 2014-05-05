@@ -10,7 +10,19 @@
 	position:relative;
 	top:4px;
 }
-
+a .glyphicon {
+	text-decoration:none;
+	color:inherit;
+}
+a {
+	text-decoration:none;
+	color:black;
+}
+.b-close {
+	font-size:80px; 
+	position:absolute; 
+	right:-11px; top:-15px;
+}
 .link {
 	padding:10px;
 	display:block;
@@ -42,7 +54,7 @@ html, body {
 .nav-bottom {
 	position:absolute;
 	bottom:0;
-	z-index:10;
+	z-index:100;
 }
 .nav-right {
 	position:absolute;
@@ -143,4 +155,39 @@ html, body {
 }
 .clear {
 	clear:both;
+}
+
+/* PROMOTIONS
+------------------------------*/
+
+.promo-wrapper {
+	position:absolute;
+	top:100%;
+	left:0%;
+	z-index:20;
+	background-color:rgba(0,0,0,.5);
+	width:100%;
+	height:100%;
+	transition:all 1s ease;
+}
+.promo-cont {
+	background-color:white;
+	padding:40px;
+	margin:40px;
+	position:relative;
+	background: -moz-linear-gradient(top, #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%); /* FF3.6+ */
+}
+.promo-wrapper.show {
+	top:0%;
+}
+.promo-cont h1 {
+	font-size:40px;
+	font-weight:normal;
+	padding-bottom:20px;
+	border-bottom:solid 1px #999;
+	margin-bottom:20px;
+	color:#FFF;
+}
+.promo-cont ul li {
+	margin-bottom:15px;
 }

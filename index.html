@@ -55,12 +55,17 @@
 					elasticFrictionCoefficient:0.8
 				});
 				
+				$(".b_promo").click(function() {
+				$(".promo-wrapper").toggleClass( "show" );
+				//alert('hello');
+			});
+				
 			});
 			
 			function slideChange(args) {
 			
 				try {
-					console.log('changed: ' + (args.currentSlideNumber - 1));
+					//console.log('changed: ' + (args.currentSlideNumber - 1));
 				} catch(err) {
 				}
 				
@@ -76,6 +81,8 @@
 				$('.houseCars_txt').text(houses[slideID][4]);
 				$(".floorplan-img").attr('src',"images/"+houses[slideID][8]);
 			}
+			
+			
 		</script>
 		
 		
@@ -105,7 +112,7 @@
             
             <div class="nav-bottom">
                 <a class="menu_but menu1" href="#"><span class="glyphicon">&#57430;</span> &nbsp;menu</a>
-                <a class="menu_but menu2" href="#"><div style="position:absolute;"><span class="glyphicon" style="color:red; font-size:45px; top:-25px; left:190px;">&#57617;</span><span style="color:white; position:relative; font-size:25px; top:-43px; left:162px;">3</span></div><span class="glyphicon">&#57602;</span> &nbsp;promotions</a>
+                <a class="menu_but menu2 b_promo" href="#"><div style="position:absolute;"><span class="glyphicon" style="color:red; font-size:45px; top:-25px; left:190px;">&#57617;</span><span style="color:white; position:relative; font-size:25px; top:-43px; left:162px;">3</span></div><span class="glyphicon">&#57602;</span> &nbsp;promotions</a>
             </div>
                 
             <div class="nav-right">
@@ -132,6 +139,18 @@
                 <div class="floorplan-div">
                     <img class="floorplan-img" src="images/astoria_plan.gif"/>
                 </div>
+            </div>
+            
+          <div class="promo-wrapper">
+            	<div class="promo-cont">
+                	<a class="b-close b_promo" href="#"><span class="glyphicon">&#57480;</span></a>
+            		<h1>Latest Simonds Promotions</h1>
+                    <ul>
+                    	<li><img src="images/promos/getoutfast.jpg" width="640" height="250"></li>
+                        <li><img src="images/promos/depositbuilder.jpg" width="640" height="250"></li>
+                        <li><img src="images/promos/mysimonds.jpg" width="640" height="250"></li>
+                    </ul>
+            </div>
             </div>
             
         </div><!--wrapper-->
