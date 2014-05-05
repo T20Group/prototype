@@ -10,6 +10,16 @@ html, body {
 	margin: 0;
 	font-family:Tahoma, Geneva, sans-serif;
 }
+.wrapper {
+	position:absolute;
+	top:0;
+	left:0;
+	height:1080px;
+	width:1920px;
+}
+.responsiveHeight {
+	position:absolute; top:0; left:0; width:1920px; height:1080px; z-index:1;
+}
 .menu1 {
 	left:0;
 }
@@ -32,7 +42,6 @@ html, body {
 }
 .nav-bottom .menu_but {
 	float:left;
-	
 }
 .menu_but {
 	display:block;
@@ -100,6 +109,7 @@ html, body {
     position: absolute;
     right: 15px;
     width: 300px;
+	text-align:center;
 }
 .floorplan-div img {
 	height:200px;
