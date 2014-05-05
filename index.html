@@ -11,7 +11,8 @@
 		<!-- CSS -->
 		<link rel = "stylesheet" href = "css/slide-default.css" />
 		<link rel = "stylesheet" media = "screen" href = "css/slide-common.css" />
-		
+		<link rel = "stylesheet" href = "css/styles.css" />
+        
 		<!-- JS -->
 		<script src = "js/jquery-1.4.min.js"></script>
 		<script src = "js/jquery.easing-1.3.js"></script>
@@ -52,14 +53,10 @@
 	
 	<body>
 		
-		<div class = 'responsiveHeight'>
-		
-			<div class = 'inner'>
-					
+		<div class = 'responsiveHeight' style="position:absolute; top:0; left:0; width:1920px; height:1080px; z-index:1;">
+			<div class = 'inner'>	
 				<div class = 'iosSlider'>
-				
 					<div class = 'slider'>
-					
 						<div class = 'item item1'>
 							<img src = 'images/astoria.jpg' />
 						</div>
@@ -69,14 +66,43 @@
 						<div class = 'item item3'>
 							<img src = 'images/bolton.jpg' />
 						</div>
-					
 					</div>
-				
 				</div>
-				
-			</div>
-					
-		</div>
+			</div>	
+		</div><!-- house images -->
+        
+            <div class="nav-bottom">
+                <a class="menu_but menu1" href="#cont1">Menu 1</a>
+                <a class="menu_but menu2" href="#cont2">Menu 2</a>
+                <a class="menu_but menu3" href="#cont3">Menu 3</a>
+            </div>
+            
+            <div class="nav-right">
+                <a class="menu_but" href="#cont1">Gallery</a>
+           		<a class="menu_but" href="#cont2">Menu 2</a>
+                <a class="menu_but" href="#cont3">Menu 3</a>
+            </div>
+            
+<!--            <div id="cont1" class="cont"><h1>Menu 1</h1></div>
+            <div id="cont2" class="cont"><h1>Menu 2</h1></div>
+            <div id="cont3" class="cont"><h1>Menu 3</h1></div>-->
+          <div class="house-info">
+                <div class="house-name">Avalon</div>
+                <div class="house-icons">
+                <span class="number">4</span>
+                    <img class="icon" src="images/bed.png" width="45" height="38"/>
+                    <span class="number">3</span>
+                    <img class="icon" src="images/bath.png" width="45" height="38"/>
+                    <span class="number">2</span>
+                    <img class="icon last" src="images/car.png" width="45" height="38"/>
+                    <div class="clear"></div>
+                </div>
+                <div class="floorplan-div">
+                    <img src="images/avalon_plan.gif"/>
+                </div>
+            </div>
+            
+        
 			
 	</body>
 	

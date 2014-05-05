@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.link {
+	padding:10px;
+	display:block;
+	}
+html, body {
+	height: 100%;
+	margin: 0;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+.menu1 {
+	left:0;
+}
+.menu2 {
+	left:33%;
+}
+.menu3 {
+	left:66%;
+}
+.nav-bottom {
+	position:absolute;
+	bottom:0;
+	z-index:10;
+}
+.nav-right {
+	position:absolute;
+	right:0;
+	top:500px;
+	z-index:10;
+}
+.nav-bottom .menu_but {
+	float:left;
+	
+}
+.menu_but {
+	display:block;
+	width:200px;
+	text-align:center;
+	background-color:rgba(255,255,255,.9);
+	margin:0;
+	padding:50px 0;
+	color:#666;
+	font-size:24pt;
+	transition:all 1s ease;
+	text-decoration:none;
+	border:1px solid #999;
+}
+.cont {
+	background-color:rgba(0,0,0,.5);
+	width:500px;
+	height:500px;
+	color:#FFF;
+	padding:50px;
+	transition:all 2s ease;
+	position:absolute;
+	top:100%;
+}
+.cont:target {
+	top:0;
+}
+.house-info {
+	position:absolute;
+	right:0;
+	text-align:right;
+	z-index:10;
+}
+.house-info .house-name {
+	text-align:right;
+	color:#FFF;
+	font-size:80pt;
+	padding:20px 60px 10px 10px;
+	text-shadow: 2px 2px #666;
+}
+.house-info .house-icons {
+	background-color:rgba(255,255,255,.9);
+	padding:10px 0px 10px 30px;
+	width:300px;
+	position:absolute;
+	right:0;
+}
+.house-info .house-icons .number {
+	font-size:22pt;
+	display:block;
+	float:left;
+	margin-right:5px;
+}
+.house-info .house-icons .icon {
+	display:block;
+	float:left;
+	margin-right:30px;
+}
+.house-info .house-icons .icon.last {
+	margin-right:0;
+}
+.floorplan-div {
+	background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 75px;
+    position: absolute;
+    right: 15px;
+    width: 300px;
+}
+.floorplan-div img {
+	height:200px;
+	padding:25px;
+}
+.clear {
+	clear:both;
+}
