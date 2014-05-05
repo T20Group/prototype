@@ -21,7 +21,7 @@ a {
 .b-close {
 	font-size:80px; 
 	position:absolute; 
-	right:-11px; top:-15px;
+	right:-12px; top:-14px;
 }
 .link {
 	padding:10px;
@@ -31,6 +31,7 @@ html, body {
 	height: 100%;
 	margin: 0;
 	font-family:Tahoma, Geneva, sans-serif;
+	overflow:hidden;
 }
 .wrapper {
 	position:absolute;
