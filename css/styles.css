@@ -63,7 +63,8 @@ html, body {
 }
 .nav-bottom .menu_but {
 	float:left;
-	padding:40px 20px;
+	padding:40px 30px;
+	font-size:28px;
 }
 .nav-right .menu_but {
 	width:235px;
@@ -72,11 +73,9 @@ html, body {
 }
 .menu_but {
 	display:block;
-	width:200px;
 	text-align:center;
 	background-color:rgba(255,255,255,.9);
 	margin:0;
-	
 	color:#666;
 	font-size:24pt;
 	transition:all 1s ease;
