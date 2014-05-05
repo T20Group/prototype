@@ -1,6 +1,16 @@
 @charset "UTF-8";
 /* CSS Document */
 
+@font-face {
+    font-family: "glyph";
+    src: url("../fonts/glyphicons-halflings-regular.woff") format('woff');
+}
+.glyphicon {
+	font-family:glyph;
+	position:relative;
+	top:4px;
+}
+
 .link {
 	padding:10px;
 	display:block;
@@ -37,11 +47,28 @@ html, body {
 .nav-right {
 	position:absolute;
 	right:0;
-	top:500px;
+	top:490px;
 	z-index:10;
+}
+.home-finder {
+	position:absolute;
+	bottom:0;
+	z-index:10;
+	left:760px;
+}
+.home-finder .menu_but {
+	width:400px;
+	padding:50px;
+	font-size:50px;
 }
 .nav-bottom .menu_but {
 	float:left;
+	padding:40px 20px;
+}
+.nav-right .menu_but {
+	width:235px;
+	padding:40px;
+	text-align:left;
 }
 .menu_but {
 	display:block;
@@ -49,7 +76,7 @@ html, body {
 	text-align:center;
 	background-color:rgba(255,255,255,.9);
 	margin:0;
-	padding:50px 0;
+	
 	color:#666;
 	font-size:24pt;
 	transition:all 1s ease;
