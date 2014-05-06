@@ -13,6 +13,21 @@
 		<link rel = "stylesheet" media = "screen" href = "css/slide-common.css" />
 		<link rel = "stylesheet" href = "css/styles.css" />
         
+        <style>
+			video {
+				width:1000px;
+				transition: all 1s ease 0s;
+			}
+			.full-video {
+				position:fixed;
+				top:0;
+				left:0;
+				height:1080px;
+				width:1920px;
+				z-index:1000;
+			}
+		</style>
+        
 		<!-- JS -->
 		<script src = "js/jquery-1.4.min.js"></script>
 		<script src = "js/jquery.easing-1.3.js"></script>
@@ -55,10 +70,21 @@
 					elasticFrictionCoefficient:0.8
 				});
 				
+				$("#vid_tinkering").click(function() {
+					var myVideo=document.getElementById("vid_tinkering");
+					if (myVideo.paused)  {
+					  myVideo.play();
+					} else { 
+					  myVideo.pause(); 
+					}
+					$("#vid_tinkering").toggleClass( "full-video" );
+					$('.nav-bottom').toggleClass('hidden');
+					
+				});
+				
 				$(".b_promo").click(function() {
-				$(".promo-wrapper").toggleClass( "show" );
-				//alert('hello');
-			});
+					$(".promo-wrapper").toggleClass( "show" );
+				});
 				
 			});
 			
@@ -149,10 +175,11 @@
             	<div class="promo-cont">
                 	<a class="b-close b_promo" href="#"><span class="glyphicon">&#57480;</span></a>
             		<h1>Our Latest Promotions</h1>
-                    <div class="hero"><video width="1000" controls>
-  <source src="video/tinkering.webm" type="video/webm">
-Your browser does not support the video tag.
-</video> </div>
+                    <div class="hero">
+                    	<video id="vid_tinkering" poster="video/tinkering.jpg">
+                      		<source src="video/tinkering.webm" type="video/webm">
+                    	</video>
+                    </div>
                     <ul>
                     	<li><img src="images/promos/getoutfast.jpg"></li>
                         <li><img src="images/promos/depositbuilder.jpg"></li>
