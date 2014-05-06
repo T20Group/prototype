@@ -35,7 +35,7 @@ a {
 html, body {
 	height: 1080px;
 	margin: 0;
-	font-family:Tahoma, Geneva, sans-serif;
+	font-family: "Helvetica", Tahoma, Geneva, sans-serif;
 	overflow:hidden;
 	color:#666;
 }
@@ -88,20 +88,26 @@ html, body {
 }
 .nav-right .menu_but {
 	width:235px;
-	padding:40px;
+	padding:25px;
 	text-align:left;
 }
 .menu_but {
 	display:block;
 	text-align:center;
-	background-color:rgba(255,255,255,.9);
+	background-color:rgba( 0, 0, 0, 0.5 );
 	margin:0;
-	color:#666;
+	color:#fff;
 	font-size:24pt;
 	transition:all 1s ease;
 	text-decoration:none;
-	border:1px solid #999;
+	border:0px solid #999;
 }
+
+.nav-right .selected {
+	background-color:rgba( 255,255,255, 0.5 );
+	color: #333;
+}
+
 .cont {
 	background-color:rgba(0,0,0,.5);
 	width:500px;

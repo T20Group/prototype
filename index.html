@@ -125,8 +125,10 @@
 .btn_right { opacity: 0; width: 522px; height: 204px; overflow: hidden; position: absolute; bottom: 17px; right: 440px; }
 .btn_left { opacity: 0; width: 522px; height: 204px; overflow: hidden; position: absolute; bottom: -30px; left: 405px; }
 
-.easing { transition: all .5s cubic-bezier(.5, 1.8, 1, 1.5); }
+.finder-result { opacity: 0; position: absolute; z-index: 10; width: 100%; text-align: center; bottom: 300px; }
 
+.easing { transition: all .5s cubic-bezier(.5, 1.8, 1, 1.5); }
+.opac { opacity: 1; }
 .btn_right_ani { opacity: 1; right: 400px; }
 .btn_left_ani { opacity: 1; left: 365px; }
 </style>
@@ -135,7 +137,7 @@
 $(function() {
 	
 	$('#btn_finder').click(function() {
-
+		$('#finder-result').toggleClass('opac');
 		$('#btn_right').toggleClass('btn_right_ani');
 		$('#btn_left').toggleClass('btn_left_ani');
 		$('.hud').toggleClass('hidden');
@@ -151,7 +153,7 @@ $(function() {
             </div>
                 
             <div class="nav-right hud">
-                <a class="menu_but" href="index.html"><span class="glyphicon">&#57377;</span> &nbsp;Front</a>
+                <a class="menu_but selected" href="index.html"><span class="glyphicon">&#57377;</span> &nbsp;Front</a>
                 <a class="menu_but" href="floorplan.html"><span class="glyphicon">&#57378;</span> &nbsp;Floorplan</a>
                 <a class="menu_but" href="gallery.html"><span class="glyphicon">&#57414;</span> &nbsp;Gallery</a>
                 <a class="menu_but" href="#"><span class="glyphicon">&#57349;</span> &nbsp;Favourite</a>
@@ -162,14 +164,19 @@ $(function() {
             	<a class="menu_but" href="#"><span class="glyphicon">&#57347;</span> &nbsp;Home Finder</a>
             </div>
             
+            <div id="finder-result" class="finder-result easing" style="">
+            	<img src="images/HUD/finder.png" alt="finder" width="1212" height="201">
+            </div>
+            
             <div id="finder" style="position: absolute; display: block; z-index: 10; bottom: 0; text-align: center; width: 100%; border: 0px solid white;">
             	<div id="btn_left" class="btn_left easing">
             		<img src="images/HUD/btn_finder_left.png" alt="btn_finder_left" height="114">
             	</div>
-            	<a id="btn_finder" href="#"><img  src="images/HUD/btn_finder.png" alt="btn_finder" height="300"></a>
+            	
             	<div id="btn_right" class="btn_right easing">
             		<img src="images/HUD/btn_finder_right.png" alt="btn_finder_right" height="180">
             	</div>
+            	<a id="btn_finder" href="#"><img  src="images/HUD/btn_finder.png" alt="btn_finder" height="300"></a>
             </div> <!-- /finder -->
 
           	<div class="house-info hud">
