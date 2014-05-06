@@ -67,7 +67,7 @@ html, body {
 .nav-right {
 	position:absolute;
 	right:0;
-	top:490px;
+	top:260px;
 	z-index:10;
 }
 .home-finder {
