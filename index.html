@@ -109,24 +109,68 @@
                     </div>
                 </div>	
             </div><!-- house images -->
+
+<style type="text/css">
+@-webkit-keyframes pulse {
+	0% { -webkit-box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+	50% { -webkit-box-shadow: 0 0 10px rgba(255,255,255,0.9); }
+	100% { -webkit-box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+}
+
+.pulsing { -webkit-animation: pulse 2s infinite ease-in-out; }
+
+
+
+
+.btn_right { opacity: 0; width: 522px; height: 204px; overflow: hidden; position: absolute; bottom: 17px; right: 440px; }
+.btn_left { opacity: 0; width: 522px; height: 204px; overflow: hidden; position: absolute; bottom: -30px; left: 405px; }
+
+.easing { transition: all .5s cubic-bezier(.5, 1.8, 1, 1.5); }
+
+.btn_right_ani { opacity: 1; right: 400px; }
+.btn_left_ani { opacity: 1; left: 365px; }
+</style>
+
+<script type="text/javascript">
+$(function() {
+	
+	$('#btn_finder').click(function() {
+
+		$('#btn_right').toggleClass('btn_right_ani');
+		$('#btn_left').toggleClass('btn_left_ani');
+		$('.hud').toggleClass('hidden');
+	});
+	
+})
+</script>
             
-            <div class="nav-bottom">
-                <a class="menu_but menu1" href="#"><span class="glyphicon">&#57430;</span> &nbsp;menu A</a>
-                <a class="menu_but menu2 b_promo" href="#"><div style="position:absolute;"><span class="glyphicon" style="color:red; font-size:45px; top:-25px; left:190px;">&#57617;</span><span style="color:white; position:relative; font-size:25px; top:-43px; left:162px;">3</span></div><span class="glyphicon">&#57602;</span> &nbsp;promotions</a>
+            <div class="nav-bottom hud">
+                <a class="menu_but menu1" href="#"><span class="glyphicon">&#57430;</span> &nbsp;menu</a>
+                <a class="menu_but menu2 b_promo pulsing" href="#"><div style="position:absolute;"><span class="glyphicon" style="color:red; font-size:45px; top:-25px; left:190px;">&#57617;</span><span style="color:white; position:relative; font-size:25px; top:-43px; left:162px;">3</span></div><span class="glyphicon">&#57602;</span> &nbsp;promotions</a>
 
             </div>
                 
-            <div class="nav-right">
+            <div class="nav-right hud">
                 <a class="menu_but" href="#"><span class="glyphicon">&#57414;</span> &nbsp;Gallery</a>
                 <a class="menu_but" href="#"><span class="glyphicon">&#57349;</span> &nbsp;Favourite</a>
                 <a class="menu_but" href="#"><span class="glyphicon">&#9993;</span> &nbsp;Share</a>
             </div>
             
-            <div class="home-finder">
+            <div class="home-finder hidden">
             	<a class="menu_but" href="#"><span class="glyphicon">&#57347;</span> &nbsp;Home Finder</a>
             </div>
+            
+            <div id="finder" style="position: absolute; display: block; z-index: 10; bottom: 0; text-align: center; width: 100%; border: 0px solid white;">
+            	<div id="btn_left" class="btn_left easing">
+            		<img src="images/HUD/btn_finder_left.png" alt="btn_finder_left" height="114">
+            	</div>
+            	<a id="btn_finder" href="#"><img  src="images/HUD/btn_finder.png" alt="btn_finder" height="300"></a>
+            	<div id="btn_right" class="btn_right easing">
+            		<img src="images/HUD/btn_finder_right.png" alt="btn_finder_right" height="180">
+            	</div>
+            </div> <!-- /finder -->
 
-          	<div class="house-info">
+          	<div class="house-info hud">
                 <div class="house-name"><span class="houseName_txt">Astoria</span></div>
                 <div class="house-icons">
                 <span class="number"><span class="houseBeds_txt">4</span></span>
@@ -137,7 +181,7 @@
                     <img class="icon last" src="images/car.png" width="45" height="38"/>
                     <div class="clear"></div>
                 </div>
-                <div class="floorplan-div">
+                <div class="floorplan-div hud">
                     <a href="floorplan.html"><img class="floorplan-img" src="images/astoria_plan.gif"/></a>
                 </div>
             </div>

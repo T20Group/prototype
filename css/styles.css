@@ -27,6 +27,11 @@ a {
 	padding:10px;
 	display:block;
 	}
+	
+.hidden { 
+	display: none;
+}
+
 html, body {
 	height: 1080px;
 	margin: 0;
