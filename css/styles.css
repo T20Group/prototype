@@ -40,6 +40,7 @@ html, body {
 	left:0;
 	height:1080px;
 	width:1920px;
+	overflow: hidden; 
 }
 .responsiveHeight {
 	position:absolute; top:0; left:0; width:1920px; height:1080px; z-index:1;
