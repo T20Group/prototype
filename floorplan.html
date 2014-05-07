@@ -13,21 +13,6 @@
 		<link rel = "stylesheet" media = "screen" href = "css/slide-common.css" />
 		<link rel = "stylesheet" href = "css/styles.css" />
         
-        <style>
-			video {
-				width:1000px;
-				transition: all 1s ease 0s;
-			}
-			.full-video {
-				position:fixed;
-				top:0;
-				left:0;
-				height:1080px;
-				width:1920px;
-				z-index:1000;
-			}
-		</style>
-        
 		<!-- JS -->
 		<script src = "js/jquery-1.4.min.js"></script>
 		<script src = "js/jquery.easing-1.3.js"></script>
@@ -68,18 +53,6 @@
 					frictionCoefficient:0.3,
 					snapFrictionCoefficient:0.95,
 					elasticFrictionCoefficient:0.8
-				});
-				
-				$("#vid_tinkering").click(function() {
-					var myVideo=document.getElementById("vid_tinkering");
-					if (myVideo.paused)  {
-					  myVideo.play();
-					} else { 
-					  myVideo.pause(); 
-					}
-					$("#vid_tinkering").toggleClass( "full-video" );
-					$('.nav-bottom').toggleClass('hidden');
-					
 				});
 				
 				$(".b_promo").click(function() {
@@ -171,6 +144,37 @@
 				-->
             </div>
             
+         <style>
+			video {
+				width:1000px;
+				transition: all 1s ease 0s;
+			}
+			.full-video {
+				position:fixed;
+				top:0;
+				left:0;
+				height:1080px;
+				width:1920px;
+				z-index:1000;
+			}
+		</style>
+        
+        <script>
+		$("#vid_tinkering").click(function() {
+					var myVideo=document.getElementById("vid_tinkering");
+					if (myVideo.paused)  {
+					  myVideo.play();
+					} else { 
+					  myVideo.pause(); 
+					}
+					$("#vid_tinkering").toggleClass( "full-video" );
+					$('.nav-bottom').toggleClass('hidden');
+					
+				});
+				
+				
+		</script>
+        
           <div class="promo-wrapper">
             	<div class="promo-cont">
                 	<a class="b-close b_promo" href="#"><span class="glyphicon">&#57480;</span></a>
