@@ -14,8 +14,9 @@
 		<link rel = "stylesheet" href = "css/styles.css" />
         
 		<!-- JS -->
-		<script src = "js/jquery-1.4.min.js"></script>
+		<script src = "js/jquery-1.8.2.min.js"></script>
 		<script src = "js/jquery.easing-1.3.js"></script>
+        <script src = "js/jquery.mobile-events.min.js"></script>
 		
 		<!-- iosSlider plugin -->
 		<script src = "js/jquery.iosslider.js"></script>
@@ -55,10 +56,9 @@
 					elasticFrictionCoefficient:0.8
 				});
 				
-				$(".b_promo").click(function() {
-				$(".promo-wrapper").toggleClass( "show" );
-				//alert('hello');
-			});
+				$(".b_promo").tapstart(function(e, touch) {
+					$(".promo-wrapper").toggleClass( "show" );
+				});
 				
 			});
 			
@@ -136,11 +136,15 @@
 <script type="text/javascript">
 $(function() {
 	
-	$('#btn_finder').click(function() {
+	$('#btn_finder').tapstart(function(e, touch) {
 		$('#finder-result').toggleClass('opac');
 		$('#btn_right').toggleClass('btn_right_ani');
 		$('#btn_left').toggleClass('btn_left_ani');
 		$('.hud').toggleClass('hidden');
+	});
+	$('.menu_but').tapstart(function(e, touch) {
+		e.preventDefault();
+		location.href=this.attr('href');
 	});
 	
 })
@@ -153,7 +157,7 @@ $(function() {
             </div>
                 
             <div class="nav-right hud">
-                <a class="menu_but selected" href="index.html"><span class="glyphicon">&#57377;</span> &nbsp;Front</a>
+                <a class="menu_but selected" href="index.html"><span class="glyphicon">&#57377;</span> &nbsp;Facade</a>
                 <a class="menu_but" href="floorplan.html"><span class="glyphicon">&#57378;</span> &nbsp;Floorplan</a>
                 <a class="menu_but" href="gallery.html"><span class="glyphicon">&#57414;</span> &nbsp;Gallery</a>
                 <a class="menu_but" href="#"><span class="glyphicon">&#57349;</span> &nbsp;Favourite</a>
@@ -214,17 +218,17 @@ $(function() {
         
         <script>
 		$(function() {
-			$("#vid_tinkering").on({ 'touchstart' : function(){
-					var myVideo=document.getElementById("vid_tinkering");
-					if (myVideo.paused)  {
-					  myVideo.play();
-					} else { 
-					  myVideo.pause(); 
-					}
-					$("#vid_tinkering").toggleClass( "full-video" );
-					$('.nav-bottom').toggleClass('hidden');
+			$("#vid_tinkering").tapstart(function(e, touch) {
+				var myVideo=document.getElementById("vid_tinkering");
+				if (myVideo.paused)  {
+				  myVideo.play();
+				} else { 
+				  myVideo.pause(); 
 				}
+				$("#vid_tinkering").toggleClass( "full-video" );
+				$('.nav-bottom').toggleClass('hidden');
 			});
+				
 		});		
 		</script>
         
