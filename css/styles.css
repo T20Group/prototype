@@ -145,7 +145,8 @@ html, body {
 	font-size:22pt;
 	display:block;
 	float:left;
-	margin-right:5px;
+	margin-right: 8px;
+    margin-top: 8px;
 }
 .house-info .house-icons .icon {
 	display:block;
