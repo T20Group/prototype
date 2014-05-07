@@ -1,8 +1,49 @@
+<style type="text/css">
+	@keyframes wishadd
+	{
+	0%   {background: rgba(0, 0, 0, 0.5);}
+	50%  {background: rgba(0,153,0,0.8);}
+	100% {background: rgba(0, 0, 0, 0.5);}
+	} 
+	.wishadd {
+		animation: wishadd 1s;
+	}
+	.glyphicon {
+		transition:all ease 1s;
+	}
+	.wishadd .glyphicon {
+		color:red;
+	}
+	
+	@keyframes wishremove
+	{
+	0%   {background: rgba(0, 0, 0, 0.5);}
+	50%  {background: rgba(255,0,0,0.8);}
+	100% {background: rgba(0, 0, 0, 0.5);}
+	} 
+	.wishremove {
+		animation: wishremove 1s;
+	}
+</style>
 <script>
 $(function() {
 	$('a').tapstart(function(e, touch) {
 		e.preventDefault();
 		location.href = $(this).attr('href');
+	});
+	var wished = false;
+	$('#wishlist').tapstart(function(e, touch) {
+		if(wished) {
+			$('.wish-plusicon').html("&#57473;");
+			$('#wishlist').removeClass('wishadd');
+			$('#wishlist').addClass('wishremove');
+			wished = false;
+		} else {
+			$('.wish-plusicon').html("&#57481;");
+			$('#wishlist').removeClass('wishremove');
+			$('#wishlist').addClass('wishadd');
+			wished = true;
+		}
 	});
 });
 	$('#'+page).addClass('selected');
@@ -11,7 +52,6 @@ $(function() {
     <a id="facade" class="menu_but" href="index.html"><span class="glyphicon">&#57377;</span> &nbsp;Facade</a>
     <a id="floorplan" class="menu_but" href="floorplan.html"><span class="glyphicon">&#57378;</span> &nbsp;Floorplan</a>
     <a id="gallery" class="menu_but" href="gallery.html"><span class="glyphicon">&#57414;</span> &nbsp;Gallery</a>
-    <div style="height:5px;"></div>
-    <a id="wishlist" class="menu_but" href="#" style="position:relative;"><span class="glyphicon">&#57349;</span><span class="glyphicon" style="position:absolute; top:40px; left:45px; background-color: rgba(0,0,0,.5); border-radius: 50%; padding:2px; font-size: 16px;">&#57473;</span> &nbsp;Wishlist</a>
-    <a id="share" class="menu_but" href="#"><span class="glyphicon">&#9993;</span> &nbsp;Share</a>
+    <a id="wishlist" class="menu_but smaller" href="#" style="position:relative;"><span class="glyphicon">&#57349;</span><span class="glyphicon wish-plusicon" style="position:absolute; top:40px; left:45px; background-color: rgba(0,0,0,.5); border-radius: 50%; padding:2px; font-size: 16px;">&#57473;</span> &nbsp;Wishlist</a>
+    <a id="share" class="menu_but smaller" href="#"><span class="glyphicon">&#9993;</span> &nbsp;Share</a>
 </div>
