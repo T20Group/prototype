@@ -213,7 +213,8 @@ $(function() {
 		</style>
         
         <script>
-		$("#vid_tinkering").click(function() {
+		$(function() {
+			$("#vid_tinkering").on({ 'touchstart' : function(){
 					var myVideo=document.getElementById("vid_tinkering");
 					if (myVideo.paused)  {
 					  myVideo.play();
@@ -222,10 +223,9 @@ $(function() {
 					}
 					$("#vid_tinkering").toggleClass( "full-video" );
 					$('.nav-bottom').toggleClass('hidden');
-					
-				});
-				
-				
+				}
+			});
+		});		
 		</script>
         
           <div class="promo-wrapper">

@@ -169,20 +169,20 @@
 			}
 		</style>
         
-        <script>
-		$("#vid_tinkering").click(function() {
-					var myVideo=document.getElementById("vid_tinkering");
-					if (myVideo.paused)  {
-					  myVideo.play();
-					} else { 
-					  myVideo.pause(); 
-					}
-					$("#vid_tinkering").toggleClass( "full-video" );
-					$('.nav-bottom').toggleClass('hidden');
-					
-				});
+       <script>
+		$(function() {
+			$("#vid_tinkering").click(function() {
+				var myVideo=document.getElementById("vid_tinkering");
+				if (myVideo.paused)  {
+				  myVideo.play();
+				} else { 
+				  myVideo.pause(); 
+				}
+				$("#vid_tinkering").toggleClass( "full-video" );
+				$('.nav-bottom').toggleClass('hidden');
 				
-				
+			});
+		});		
 		</script>
         
           <div class="promo-wrapper">
