@@ -143,8 +143,8 @@ $(function() {
 		$('.hud').toggleClass('hidden');
 	});
 	$('.menu_but').tapstart(function(e, touch) {
-		e.preventDefault();
 		location.href=this.attr('href');
+		e.preventDefault();
 	});
 	
 })
