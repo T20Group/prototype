@@ -1,0 +1,48 @@
+<style type="text/css">
+@-webkit-keyframes pulse {
+	0% { -webkit-box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+	50% { -webkit-box-shadow: 0 0 10px rgba(255,255,255,0.9); }
+	100% { -webkit-box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+}
+
+.pulsing { -webkit-animation: pulse 2s infinite ease-in-out; }
+
+.btn_right { opacity: 0; width: 522px; height: 204px; overflow: hidden; position: absolute; bottom: 17px; right: 440px; z-index:10; }
+.btn_left { opacity: 0; width: 522px; height: 204px; overflow: hidden; position: absolute; bottom: -30px; left: 405px; z-index:10; }
+#btn_finder { z-index:20; position:relative;}
+.finder-result { opacity: 0; position: absolute; z-index: 10; width: 100%; text-align: center; bottom: 300px; }
+
+.easing { transition: all .5s cubic-bezier(.5, 1.8, 1, 1.5); }
+.opac { opacity: 1; }
+.btn_right_ani { opacity: 1; right: 400px; }
+.btn_left_ani { opacity: 1; left: 365px; }
+</style>
+
+<script type="text/javascript">
+$(function() {
+	
+	$('#btn_finder').tapstart(function(e, touch) {
+		$('#finder-result').toggleClass('opac');
+		$('#btn_right').toggleClass('btn_right_ani');
+		$('#btn_left').toggleClass('btn_left_ani');
+		$('.hud').toggleClass('hidden');
+	});
+	
+})
+</script>
+
+<div id="finder-result" class="finder-result easing" style="">
+    <img src="images/HUD/finder.png" alt="finder" width="1212" height="201">
+</div>
+
+<div id="finder" style="position: absolute; display: block; z-index: 10; bottom: 0; text-align: center; width: 100%; border: 0px solid white;">
+	<a id="btn_finder" href="#"><img  src="images/HUD/btn_finder.png" alt="btn_finder" height="300"></a>
+    <div id="btn_left" class="btn_left easing">
+        <img src="images/HUD/btn_finder_left.png" alt="btn_finder_left" height="114">
+    </div>
+    
+    <div id="btn_right" class="btn_right easing">
+        <img src="images/HUD/btn_finder_right.png" alt="btn_finder_right" height="180">
+    </div>
+    
+</div> <!-- /finder -->

@@ -14,8 +14,9 @@
 		<link rel = "stylesheet" href = "css/styles.css" />
         
 		<!-- JS -->
-		<script src = "js/jquery-1.4.min.js"></script>
+		<script src = "js/jquery-1.8.2.min.js"></script>
 		<script src = "js/jquery.easing-1.3.js"></script>
+        <script src = "js/jquery.mobile-events.min.js"></script>
 		
 		<!-- iosSlider plugin -->
 		<script src = "js/jquery.iosslider.js"></script>
@@ -55,11 +56,6 @@
 					elasticFrictionCoefficient:0.8
 				});
 				
-				$(".b_promo").click(function() {
-				$(".promo-wrapper").toggleClass( "show" );
-				//alert('hello');
-			});
-				
 			});
 			
 			function slideChange(args) {
@@ -69,17 +65,6 @@
 				} catch(err) {
 				}
 				
-				//$('.indicators .item').removeClass('selected');
-				//$('.indicators .item:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
-				//alert(args.currentSlideNumber - 1);
-				//$('.houseName_txt').text(houses[args.currentSlideNumber-1][0]);]
-				
-				/*var slideID = args.currentSlideNumber - 1;
-				$('.houseName_txt').text(houses[slideID][0]);
-				$('.houseBeds_txt').text(houses[slideID][2]);
-				$('.houseBaths_txt').text(houses[slideID][3]);
-				$('.houseCars_txt').text(houses[slideID][4]);
-				$(".floorplan-img").attr('src',"images/"+houses[slideID][8]);*/
 			}
 			
 			
@@ -119,89 +104,31 @@
                 </div>	
             </div><!-- house images -->
             
-            <div class="nav-bottom">
-                <a class="menu_but menu1" href="#"><span class="glyphicon">&#57430;</span> &nbsp;menu</a>
-                <a class="menu_but menu2 b_promo" href="#"><div style="position:absolute;"><span class="glyphicon" style="color:red; font-size:45px; top:-25px; left:190px;">&#57617;</span><span style="color:white; position:relative; font-size:25px; top:-43px; left:162px;">3</span></div><span class="glyphicon">&#57602;</span> &nbsp;promotions</a>
-
-            </div>
-                
-            <div class="nav-right">
-            	<a class="menu_but" href="index.html"><span class="glyphicon">&#57377;</span> &nbsp;Front</a>
-                <a class="menu_but" href="floorplan.html"><span class="glyphicon">&#57378;</span> &nbsp;Floorplan</a>
-                <a class="menu_but selected" href="gallery.html"><span class="glyphicon">&#57414;</span> &nbsp;Gallery</a>
-                <a class="menu_but" href="#"><span class="glyphicon">&#57349;</span> &nbsp;Favourite</a>
-                <a class="menu_but" href="#"><span class="glyphicon">&#9993;</span> &nbsp;Share</a>
-            </div>
+            <div id="nav-bottom-div"></div>
+            <script>
+				$( "#nav-bottom-div" ).load( "includes/nav-bottom.html" );
+			</script>
             
-            <div class="home-finder">
-            	<a class="menu_but" href="#"><span class="glyphicon">&#57347;</span> &nbsp;Home Finder</a>
-            </div>
-
-          	<div class="house-info">
-                <div class="house-name"><span class="houseName_txt">Astoria</span></div>
-                <div class="house-icons">
-                	<span class="number"><span class="houseBeds_txt">4</span></span>
-                    <img class="icon" src="images/bed.png" width="45" height="38"/>
-                    <span class="number"><span class="houseBaths_txt">3</span></span>
-                    <img class="icon" src="images/bath.png" width="45" height="38"/>
-                    <span class="number"><span class="houseCars_txt">2</span></span>
-                    <img class="icon last" src="images/car.png" width="45" height="38"/>
-                    <div class="clear"></div>
-                </div>
-                <!--<div style="padding:50px; font-size:40px; color:#FFF; clear:both;">Kitchen</div>-->
-                <!--<div class="floorplan-div">
-                    <a href="floorplan.html"><img class="floorplan-img" src="images/astoria_plan.gif"/></a>
-                </div>-->
-            </div>
+            <div id="nav-right-div"></div>
+            <script>
+				var page = "gallery";
+				$( "#nav-right-div" ).load( "includes/nav-right.html" );
+			</script>
             
-			<style>
-			video {
-				width:1000px;
-				transition: all 1s ease 0s;
-			}
-			.full-video {
-				position:fixed;
-				top:0;
-				left:0;
-				height:1080px;
-				width:1920px;
-				z-index:1000;
-			}
-		</style>
-        
-       <script>
-		$(function() {
-			$("#vid_tinkering").click(function() {
-				var myVideo=document.getElementById("vid_tinkering");
-				if (myVideo.paused)  {
-				  myVideo.play();
-				} else { 
-				  myVideo.pause(); 
-				}
-				$("#vid_tinkering").toggleClass( "full-video" );
-				$('.nav-bottom').toggleClass('hidden');
-				
-			});
-		});		
-		</script>
-        
-          <div class="promo-wrapper">
-            	<div class="promo-cont">
-                	<a class="b-close b_promo" href="#"><span class="glyphicon">&#57480;</span></a>
-            		<h1>Our Latest Promotions</h1>
-                    <div class="hero">
-                    	<video id="vid_tinkering" poster="video/tinkering.jpg">
-                      		<source src="video/tinkering.webm" type="video/webm">
-                    	</video>
-                    </div>
-                    <ul>
-                    	<li><img src="images/promos/getoutfast.jpg"></li>
-                        <li><img src="images/promos/depositbuilder.jpg"></li>
-                        <li><img src="images/promos/mysimonds.jpg"></li>
-                    </ul>
-                    <div class="clear"></div>
-            	</div>
-            </div>
+            <div id="finder-div"></div>
+            <script>
+				$( "#finder-div" ).load( "includes/home-finder.html" );
+			</script>
+			
+            <div id="house-info-div"></div>
+            <script>
+				$( "#house-info-div" ).load( "includes/house-info.html" );
+			</script>
+
+			<div id="promo-cont-div"></div>
+            <script>
+				$( "#promo-cont-div" ).load( "includes/promo-cont.html" );
+			</script>
             
         </div><!--wrapper-->
 			

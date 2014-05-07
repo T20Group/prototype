@@ -1,0 +1,16 @@
+<script>
+$(function() {
+	$('a').tapstart(function(e, touch) {
+		e.preventDefault();
+		location.href = $(this).attr('href');
+	});
+});
+	$('#'+page).addClass('selected');
+</script>
+<div class="nav-right hud">
+    <a id="facade" class="menu_but" href="index.html"><span class="glyphicon">&#57377;</span> &nbsp;Facade</a>
+    <a id="floorplan" class="menu_but" href="floorplan.html"><span class="glyphicon">&#57378;</span> &nbsp;Floorplan</a>
+    <a id="gallery" class="menu_but" href="gallery.html"><span class="glyphicon">&#57414;</span> &nbsp;Gallery</a>
+    <a id="wishlist" class="menu_but" href="#"><span class="glyphicon">&#57349;</span> &nbsp;Wishlist</a>
+    <a id="share" class="menu_but" href="#"><span class="glyphicon">&#9993;</span> &nbsp;Share</a>
+</div>
