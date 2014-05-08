@@ -310,6 +310,10 @@ html, body {
 .share-cont .email-form .checkbox-div {
 	padding-bottom:50px;
 }
+.share-cont .email-form .checkbox-div .checkbox-text {
+	display:inline-block;
+	font-size:30px;
+}
 .share-cont .email-form button {
 	font-size:30px;
 	padding:5px;
