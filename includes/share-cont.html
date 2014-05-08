@@ -1,0 +1,27 @@
+<style>
+
+</style>
+
+<script>
+$(function() {
+	$(".b_share").tapstart(function(e, touch) {
+		$(".share-wrapper").toggleClass( "show" );
+	});
+});		
+</script>
+
+<div class="share-wrapper">
+<a class="b_share" href="#" style="width:100%; height:100%;"></a>
+	<div class="share-cont">
+		<a class="b-close b_share" href="#"><span class="glyphicon">&#57480;</span></a>
+		<h1>Share this home</h1>
+        <div class="desc">Fill in the form below and a brochure of this home will be sent instantly via email.</div>
+        <div class="email-form">
+        	<form>
+                <label for="name">Name:</label> <input type="text" name="name" />
+                <label for="email">Email:</label> <input type="email" name="email" required="required" />    
+                <button type="button">Send</button>
+            </form>     
+        </div>
+	</div>
+</div>

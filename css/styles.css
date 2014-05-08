@@ -212,7 +212,7 @@ html, body {
 	position:absolute;
 	top:100%;
 	left:0%;
-	z-index:20;
+	z-index:100;
 	background-color:rgba(0,0,0,.5);
 	width:100%;
 	height:100%;
@@ -248,4 +248,54 @@ html, body {
 }
 .promo-cont ul li img {
 	width:100%;
+}
+
+/* SHARE
+------------------------------*/
+.share-wrapper {
+	position:absolute;
+	top:0%;
+	left:100%;
+	z-index:100;
+	background-color:rgba(0,0,0,.5);
+	width:100%;
+	height:100%;
+	transition:all 1s ease;
+}
+.share-cont {
+	background-color:white;
+	padding:40px;
+	margin:260px 660px 0;
+	position:relative;
+	background: -moz-linear-gradient(top, #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%); /* FF3.6+ */
+	font-size:34px;
+	text-align:center;
+}
+.share-wrapper.show {
+	left:0%;
+}
+.share-cont h1 {
+	font-size:40px;
+	font-weight:normal;
+	padding-bottom:20px;
+	border-bottom:solid 1px #999;
+	margin-bottom:20px;
+}
+.share-cont .desc {
+	padding-bottom:30px;
+	font-size:26px;
+	line-height:125%;
+}
+.share-cont .email-form input {
+	font-size:30px;
+	display:block;
+	margin:15px auto 40px;
+	padding:4px;
+	border-radius: 4px;
+}
+.share-cont .email-form button {
+	font-size:30px;
+	padding:5px;
+	height:80px;
+	width:200px;
 }
