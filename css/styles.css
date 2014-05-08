@@ -289,9 +289,21 @@ html, body {
 .share-cont .email-form input {
 	font-size:30px;
 	display:block;
-	margin:15px auto 40px;
-	padding:4px;
+	margin:15px auto 10px;
+	padding:10px 14px;
 	border-radius: 4px;
+	text-align:center;
+}
+.share-cont .email-form input[type=checkbox] {
+	width:1.5em; 
+	height:1.5em;
+	display:inline-block;
+	position:relative;
+	top:7px;
+	margin-left:5px; 
+}
+.share-cont .email-form .checkbox-div {
+	padding-bottom:50px;
 }
 .share-cont .email-form button {
 	font-size:30px;

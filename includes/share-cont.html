@@ -11,17 +11,18 @@ $(function() {
 </script>
 
 <div class="share-wrapper">
-<a class="b_share" href="#" style="width:100%; height:100%;"></a>
+<a class="b_share" href="#" style="width:100%; height:100%; position:absolute;"></a>
 	<div class="share-cont">
 		<a class="b-close b_share" href="#"><span class="glyphicon">&#57480;</span></a>
 		<h1>Share this home</h1>
-        <div class="desc">Fill in the form below and a brochure of this home will be sent instantly via email.</div>
+        <div class="desc">Fill in your email and a brochure of this home will be sent instantly</div>
         <div class="email-form">
         	<form>
-                <label for="name">Name:</label> <input type="text" name="name" />
-                <label for="email">Email:</label> <input type="email" name="email" required="required" />    
+                <!--<label for="name">Name:</label> <input type="text" name="name" />
+                <label for="email">Email:</label> --><input type="email" name="email" required="required" placeholder="Email" />  
+                <div class="checkbox-div">Join the Simonds VIP List <input name="" type="checkbox" value="" checked="checked" /></div>
                 <button type="button">Send</button>
-            </form>     
+            </form>
         </div>
 	</div>
 </div>
