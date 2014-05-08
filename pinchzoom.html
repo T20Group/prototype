@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Panzoom for jQuery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      body { background: #F5FCFF; color: #333666; }
+      section { text-align: center; margin: 50px 0;}
+	  .parent { height:800px; width:1200px; margin:0 auto;}
+      .panzoom-parent { border: 2px solid #333; }
+      .panzoom-parent .panzoom { border: 2px dashed #666; }
+      .buttons { margin: 40px 0 0; }
+    </style>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jquery.panzoom.js"></script>
+    <script src="js/jquery.mousewheel.js"></script>
+  </head>
+  <body>
+  <a href="index.html">BACK</a>
+    <section>
+      <div class="parent">
+        <div class="panzoom">
+          <!--<img src="images/astoria_plan.gif" width="660" height="547">--><img src="images/astoria_plan_big.jpg" width="1920" height="1080">
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="zoom-in">Zoom In</button>
+        <button class="zoom-out">Zoom Out</button>
+        <input type="range" class="zoom-range">
+        <button class="reset">Reset</button>
+      </div>
+      <script>
+        (function() {
+          var $section = $('section').first();
+          $section.find('.panzoom').panzoom({
+            $zoomIn: $section.find(".zoom-in"),
+            $zoomOut: $section.find(".zoom-out"),
+            $zoomRange: $section.find(".zoom-range"),
+            $reset: $section.find(".reset")
+          });
+        })();
+      </script>
+    </section>
+    
+
+    <!-- Load livereload if not phantom or github -->
+    <script>
+      //if ( !window.phantom && !/github/.test(window.location.hostname) ) document.write('<scr' + 'ipt src="http://' + location.hostname + ':35711/livereload.js"></scr' + 'ipt>');
+    </script>
+  </body>
+</html>

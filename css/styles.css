@@ -38,6 +38,7 @@ html, body {
 	font-family: "Helvetica", Tahoma, Geneva, sans-serif;
 	overflow:hidden;
 	color:#666;
+	background-color:#333;
 }
 .wrapper {
 	position:absolute;
@@ -45,7 +46,21 @@ html, body {
 	left:0;
 	height:1080px;
 	width:1920px;
-	overflow: hidden; 
+	overflow: hidden;
+	transition:all ease 1s;
+	z-index:10;
+}
+.wrapper-slide-right {
+	left:290px;
+}
+.wrapper-black-overlay {
+	width:100%;
+	height:100%;
+	background-color:rgba(0,0,0,0.5);
+	position:absolute;
+	left:0;
+	right:0;
+	z-index:500;
 }
 .responsiveHeight {
 	position:absolute; top:0; left:0; width:1920px; height:1080px; z-index:1;
@@ -70,6 +85,12 @@ html, body {
 	top:260px;
 	z-index:20;
 }
+.nav-left {
+	position:absolute;
+	left:0;
+	bottom:0;
+	z-index:2;
+}
 .home-finder {
 	position:absolute;
 	bottom:0;
@@ -90,6 +111,13 @@ html, body {
 	width:235px;
 	padding:25px;
 	text-align:left;
+}
+.nav-left .menu_but {
+	width:235px;
+	padding:25px 25px 25px 40px;
+	text-align:left;
+	background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6+ */
+	font-size:28px;
 }
 .menu_but {
 	display:block;

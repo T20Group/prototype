@@ -1,5 +1,26 @@
+<script type="text/javascript">
+$(function() {
+	var menuShowing = false;
+	$('#menu').tapstart(function(e, touch) {
+		if (menuShowing) {
+			$('.wrapper').removeClass('wrapper-slide-right');
+			$('.wrapper-black-overlay').addClass('hidden');
+			menuShowing = false;
+		} else {
+			$('.wrapper').addClass('wrapper-slide-right');
+			$('.wrapper-black-overlay').removeClass('hidden');
+			menuShowing = true;
+		}
+	});
+	$('.wrapper-black-overlay').tapstart(function(e, touch) {
+		$('#menu').tapstart();
+	});
+});
+</script>
+<div class="wrapper-black-overlay hidden"></div>
+
 <div class="nav-bottom hud">
-    <a class="menu_but menu1" href="#"><span class="glyphicon">&#57430;</span> &nbsp;menu</a>
+    <a id="menu" class="menu_but menu1" href="#"><span class="glyphicon">&#57430;</span> &nbsp;menu</a>
     <a class="menu_but menu2" href="#"><span class="glyphicon">&#57349;</span> &nbsp;wishlist</a>
     <a class="menu_but menu3 b_promo pulsing" href="#">
     	<div style="position:absolute;">

@@ -16,16 +16,25 @@
 .opac { opacity: 1; }
 .btn_right_ani { opacity: 1; right: 400px; }
 .btn_left_ani { opacity: 1; left: 365px; }
+.lower-finder { bottom:-115px;}
+#finder {
+	position: absolute; display: block; z-index: 10; bottom: 0; text-align: center; width: 100%; border: 0px solid white; transition:all ease 1s;
+}
 </style>
 
 <script type="text/javascript">
 $(function() {
-	
+	var finder_clicked = false;
 	$('#btn_finder').tapstart(function(e, touch) {
 		$('#finder-result').toggleClass('opac');
 		$('#btn_right').toggleClass('btn_right_ani');
 		$('#btn_left').toggleClass('btn_left_ani');
 		$('.hud').toggleClass('hidden');
+		if (finder_clicked) {
+			$('#finder').toggleClass('lower-finder');
+		} else {
+			finder_clicked = true;
+		}
 	});
 	
 })
@@ -35,8 +44,8 @@ $(function() {
     <img src="images/HUD/finder.png" alt="finder" width="1212" height="201">
 </div>
 
-<div id="finder" style="position: absolute; display: block; z-index: 10; bottom: 0; text-align: center; width: 100%; border: 0px solid white;">
-	<a id="btn_finder" href="#"><img  src="images/HUD/btn_finder.png" alt="btn_finder" height="300"></a>
+<div id="finder" style="">
+	<a id="btn_finder" href="#"><img src="images/HUD/btn_finder.png" alt="btn_finder" height="300"></a>
     <div id="btn_left" class="btn_left easing">
         <img src="images/HUD/btn_finder_left.png" alt="btn_finder_left" height="114">
     </div>
