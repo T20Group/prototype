@@ -22,6 +22,7 @@ a {
 	font-size:80px; 
 	position:absolute; 
 	right:-12px; top:-14px;
+	color:#CFCFCF;
 }
 .link {
 	padding:10px;
@@ -39,7 +40,7 @@ html, body {
     font-weight: 300;
 	overflow:hidden;
 	color:#666;
-	background-color:#333;
+	background-color:transparent;
 }
 .wrapper {
 	position:absolute;
@@ -91,6 +92,10 @@ html, body {
 	left:0;
 	bottom:0;
 	z-index:2;
+}
+#nav-left-div {
+	height:100%;
+	background-color:#333;
 }
 .home-finder {
 	position:absolute;
