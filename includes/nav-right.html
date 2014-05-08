@@ -14,6 +14,8 @@
 	.wishadd .glyphicon {
 		color:red;
 	}
+	.wishcount { opacity:0; transition:all ease 1s; }
+	.wishcount.show { opacity:1; }
 	
 	@keyframes wishremove
 	{
@@ -37,11 +39,13 @@ $(function() {
 			$('.wish-plusicon').html("&#57473;");
 			$('#wishlist').removeClass('wishadd');
 			$('#wishlist').addClass('wishremove');
+			$('.wishcount').removeClass('show');
 			wished = false;
 		} else {
 			$('.wish-plusicon').html("&#57481;");
 			$('#wishlist').removeClass('wishremove');
 			$('#wishlist').addClass('wishadd');
+			$('.wishcount').addClass('show');
 			wished = true;
 		}
 	});
