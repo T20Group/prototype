@@ -23,6 +23,9 @@
 		
 		<script type="text/javascript">
 		
+			//for main nav
+			var page = "facade";
+		
 			//0 = House name
 			//1 = Storeys
 			//2 = Beds
@@ -107,36 +110,10 @@
                 </div>	
             </div><!-- house images -->
             
-			<div id="nav-bottom-div"></div>
-            <script>
-				$( "#nav-bottom-div" ).load( "includes/nav-bottom.html" );
-			</script>
-            
-            <div id="nav-right-div"></div>
-            <script>
-				var page = "facade";
-				$( "#nav-right-div" ).load( "includes/nav-right.html" );
-			</script>
-            
-            <div id="finder-div"></div>
-            <script>
-				$( "#finder-div" ).load( "includes/home-finder.html" );
-			</script>
-			
-            <div id="house-info-div"></div>
-            <script>
-				$( "#house-info-div" ).load( "includes/house-info.html" );
-			</script>
-
-			<div id="promo-cont-div"></div>
-            <script>
-				$( "#promo-cont-div" ).load( "includes/promo-cont.html" );
-			</script>
-            
-            <div id="share-cont-div"></div>
-            <script>
-				$( "#share-cont-div" ).load( "includes/share-cont.html" );
-			</script>
+			<div id="include-div"></div>
+			<script>
+                $( "#include-div" ).load( "includes/include-in-wrapper.html" );
+            </script>
             
         </div><!--wrapper-->
 			

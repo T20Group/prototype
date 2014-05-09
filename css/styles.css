@@ -19,10 +19,11 @@ a {
 	color:black;
 }
 .b-close {
-	font-size:80px; 
-	position:absolute; 
-	right:-12px; top:-14px;
-	color:#CFCFCF;
+	color: #FFFFFF;
+    font-size: 40px;
+    position: absolute;
+    right: -7px;
+    top: -7px;
 }
 .link {
 	padding:10px;
@@ -31,6 +32,9 @@ a {
 	
 .hidden { 
 	display: none;
+}
+input, button {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
 html, body {
@@ -319,4 +323,146 @@ html, body {
 	padding:5px;
 	height:80px;
 	width:200px;
+}
+
+/* WISHLIST
+------------------------------*/
+
+.wishlist-wrapper {
+	/*position:absolute;
+	top:0%;
+	left:0%;
+	z-index:100;
+	width:100%;
+	height:100%;
+	transition:all 1s ease;*/
+}
+.wishlist-cont {
+	position:absolute;
+	background-color:rgba(0,0,0,.7);
+	bottom:-100%;
+	left:200px;
+	padding:30px;
+	color:#FFF;
+	z-index:20;
+	transition:all 1s ease;
+	opacity:0;
+}
+.wishlist-cont.show {
+	bottom:150px;
+	opacity:1;
+}
+.wishlist-cont h1 {
+	border-bottom: 1px solid #FFFFFF;
+    font-size: 40px;
+    font-weight: lighter;
+    padding-bottom: 10px;
+}
+.wishlist-cont .wish-share {
+	display:block;
+	color:#FFF;
+	padding:20px;
+	border:1px solid #FFF;
+	margin-top:20px;
+	font-size:28px;
+	font-weight: lighter;
+	background-color:rgba(255,255,255,.1);
+}
+.wishlist-cont .house-thumb {
+	float:left;
+	clear:both;
+	padding-top:20px;
+}
+.wishlist-cont .house-name {
+	float: left;
+    font-size: 26px;
+    margin-left: 20px;
+    margin-top: 55px;
+}
+.wishlist-cont .arrow {
+	width: 0; 
+	height: 0; 
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-top: 30px solid rgba(0,0,0,.7);
+	position:absolute;
+	bottom:-30px;
+	left:20px;
+}
+
+.wishlist-share {
+	position:absolute;
+	background-color:rgba(0,0,0,.7);
+	top:0;
+	left:340px;
+	padding:30px;
+	color:#FFF;
+	z-index:20;
+	transition:all 1s ease;
+	width:500px;
+	text-align:center;
+	visibility:hidden;
+}
+.wishlist-share.show {
+	left:390px;
+	visibility:visible;
+}
+.wishlist-share .desc {
+	font-size:20px;
+	padding:20px 0 0;
+}
+.wishlist-share .email-form input {
+	font-size:30px;
+	display:block;
+	margin:15px 0 0;
+	padding:10px 0;
+	border-radius: 4px;
+	text-align:center;
+	width:100%;
+}
+.wishlist-share .email-form input[type=checkbox] {
+	width:1.5em; 
+	height:1.5em;
+	display:inline-block;
+	position:relative;
+	top:7px;
+	margin-left:5px; 
+}
+.wishlist-share .email-form .checkbox-div {
+	padding-bottom:50px;
+}
+.wishlist-share .email-form .checkbox-div .checkbox-text {
+	display:inline-block;
+	font-size:30px;
+}
+.wishlist-share .email-form button {
+	font-size:30px;
+	padding:5px;
+	height:80px;
+	width:200px;
+}
+.wishlist-share .arrow-l {
+	width: 0; 
+	height: 0; 
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	border-right: 30px solid rgba(0,0,0,.7);
+	position:absolute;
+	top:110px;
+	left:-30px;
+}
+@keyframes fadeOut {
+	0%   {opacity:1;}
+	99%  {opacity:0;}
+	100% {visibility:hidden;}
+} 
+.fadeOut {
+	animation: fadeOut 1s ease;
+}
+@keyframes fadeIn {
+	0%   {opacity:0; visibility:visible;}
+	100%  {opacity:1;}
+} 
+.fadeIn {
+	animation: fadeIn 1s ease;
 }

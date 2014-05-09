@@ -1,0 +1,84 @@
+<script>
+$(function() {
+	var wishlist = false;
+	$(".b_wishlist").tapstart(function(e, touch) {
+		if (wishlist) {
+			$(".wishlist-cont").removeClass("show");
+			wishlist = false;
+			
+			$(".wishlist-share").removeClass("show fadeIn");
+			$(".wishlist-share").addClass("fadeOut");
+			sharewish = false;
+		} else {
+			$(".wishlist-cont").addClass("show");
+			wishlist = true;
+		}
+		
+	});
+	
+	var sharewish = false;
+	$(".b_sharewish").tapstart(function(e, touch) {
+		if (sharewish) {
+			$(".wishlist-share").removeClass("show fadeIn");
+			$(".wishlist-share").addClass("fadeOut");
+			sharewish = false;
+		} else {
+			$(".wishlist-share").removeClass("fadeOut");
+			$(".wishlist-share").addClass("show fadeIn");
+			sharewish = true;
+		}
+		
+	});
+	
+	$(".b_houseSlide").tapstart(function(e, touch) {
+		if (page=="gallery") {
+			window.location.href="index.html";
+		} else {
+			var slideNum = $(this).attr('href').substring(1);
+			$('.iosSlider').iosSlider('goToSlide', slideNum);
+		}
+	});
+});		
+</script>
+
+<div class="wishlist-wrapper">
+<!--<a class="b_wishlist" href="#" style="width:100%; height:100%; position:absolute;"></a>-->
+	<div class="wishlist-cont">
+    	<a class="b-close b_wishlist" href="#"><span class="glyphicon">&#57480;</span></a>
+    	<h1>Your Wishlist</h1>
+        <a class="wish-share b_sharewish" href="#"><span class="glyphicon">&#9993;</span> &nbsp;Share your list</a>
+    	<div class="house-thumb"><a class="b_houseSlide" href="#1"><img src="images/astoria.jpg" height="100" /></a></div>
+        <div class="house-name">Astoria</div>
+        
+        <div class="house-thumb"><a class="b_houseSlide" href="#2"><img src="images/avalon.jpg" height="100" /></a></div>
+        <div class="house-name">Avalon</div>
+        
+        <div class="house-thumb"><a class="b_houseSlide" href="#3"><img src="images/bolton.jpg" height="100" /></a></div>
+        <div class="house-name">Bolton</div>
+        
+        <div class="wishlist-share">
+            <div class="arrow-l"></div>
+            <h1>Share Your Wishlist</h1>
+            <div class="desc">Have your wishlist emailed to you instantly</div>
+            <div class="email-form">
+                <form>
+                    <!--<label for="name">Name:</label> <input type="text" name="name" />
+                    <label for="email">Email:</label> --><input type="email" name="email" required="required" placeholder="Enter your email" />  
+                    <div class="checkbox-div">
+                        <a class="b-close b_sharewish" href="#"><span class="glyphicon">&#57480;</span></a>
+                        <div class="checkbox-text">Join the Simonds VIP List</div>
+                        <div class="squaredTwo">
+                            <input type="checkbox" value="None" id="wishlist_vip" name="wishlist_vip" />
+                            <label for="squaredTwo"></label>
+                        </div>
+                    </div>
+                    <button type="button">Send</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="arrow"></div>
+	</div>
+    
+    
+</div>
