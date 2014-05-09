@@ -295,7 +295,7 @@ html, body {
 	font-size:26px;
 	line-height:125%;
 }
-.share-cont .email-form input {
+.share-cont .email-form input[type=email] {
 	font-size:30px;
 	display:block;
 	margin:15px auto 10px;
@@ -411,7 +411,7 @@ html, body {
 	font-size:20px;
 	padding:20px 0 0;
 }
-.wishlist-share .email-form input {
+.wishlist-share .email-form input[type=email] {
 	font-size:30px;
 	display:block;
 	margin:15px 0 0;
