@@ -434,6 +434,7 @@ html, body {
 .wishlist-share .email-form .checkbox-div .checkbox-text {
 	display:inline-block;
 	font-size:30px;
+	margin-top:30px;
 }
 .wishlist-share .email-form button {
 	font-size:30px;
