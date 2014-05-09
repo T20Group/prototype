@@ -84,7 +84,15 @@ input[type=checkbox] {
 
 <script>
 $(function() {
+	var shareHouse = false;
 	$(".b_share").tapstart(function(e, touch) {
+		if (shareHouse) {
+			shareHouse = false;
+			$(".nav-right .b_share").removeClass('highlightInOut');
+		} else {
+			shareHouse = true;
+			$(".nav-right .b_share").addClass('highlightInOut');
+		}
 		$(".share-wrapper").toggleClass( "show" );
 	});
 });		

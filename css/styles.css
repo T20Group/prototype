@@ -28,7 +28,7 @@ a {
 .link {
 	padding:10px;
 	display:block;
-	}
+}
 	
 .hidden { 
 	display: none;
@@ -55,6 +55,7 @@ html, body {
 	overflow: hidden;
 	transition:all ease 1s;
 	z-index:10;
+	box-shadow: 0 0 100px 10px #000000;
 }
 .wrapper-slide-right {
 	left:290px;
@@ -470,4 +471,12 @@ html, body {
 } 
 .fadeIn {
 	animation: fadeIn 1s ease;
+}
+@keyframes highlightInOut {
+	0%   {background-color:rgba(0,0,0,.5);}
+	50%   {background-color:rgba(0,0,0,.9);}
+	100%  {background-color:rgba(0,0,0,.5);}
+} 
+.highlightInOut {
+	animation: highlightInOut 1s ease;
 }

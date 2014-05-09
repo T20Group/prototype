@@ -4,6 +4,7 @@ $(function() {
 	$(".b_wishlist").tapstart(function(e, touch) {
 		if (wishlist) {
 			$(".wishlist-cont").removeClass("show");
+			$(".nav-bottom .b_wishlist").removeClass('highlightInOut');
 			wishlist = false;
 			
 			$(".wishlist-share").removeClass("show fadeIn");
@@ -11,6 +12,7 @@ $(function() {
 			sharewish = false;
 		} else {
 			$(".wishlist-cont").addClass("show");
+			$(".nav-bottom .b_wishlist").addClass('highlightInOut');
 			wishlist = true;
 		}
 		
