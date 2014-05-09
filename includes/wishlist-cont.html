@@ -21,10 +21,12 @@ $(function() {
 	var sharewish = false;
 	$(".b_sharewish").tapstart(function(e, touch) {
 		if (sharewish) {
+			$(this).removeClass('highlightInOut');
 			$(".wishlist-share").removeClass("show fadeIn");
 			$(".wishlist-share").addClass("fadeOut");
 			sharewish = false;
 		} else {
+			$(this).addClass('highlightInOut');
 			$(".wishlist-share").removeClass("fadeOut");
 			$(".wishlist-share").addClass("show fadeIn");
 			sharewish = true;
@@ -33,11 +35,13 @@ $(function() {
 	});
 	
 	$(".b_houseSlide").tapstart(function(e, touch) {
+		$(this).addClass('fadeOutIn');
 		if (page=="gallery") {
 			window.location.href="index.html";
 		} else {
 			var slideNum = $(this).attr('href').substring(1);
 			$('.iosSlider').iosSlider('goToSlide', slideNum);
+			$(this).removeClass('fadeOutIn');
 		}
 	});
 });		

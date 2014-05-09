@@ -480,3 +480,11 @@ html, body {
 .highlightInOut {
 	animation: highlightInOut 1s ease;
 }
+@keyframes fadeOutIn {
+	0%   {opacity:1;}
+	50%   {opacity:.6;}
+	100%  {opacity:1;}
+} 
+.highlightInOut {
+	animation: fadeOutIn 1s ease;
+}
