@@ -266,7 +266,7 @@ html, body {
 	top:0%;
 	left:100%;
 	z-index:100;
-	background-color:rgba(0,0,0,.5);
+	background-color:rgba(0,0,0,.2);
 	width:100%;
 	height:100%;
 	transition:all 1s ease;
@@ -276,32 +276,35 @@ html, body {
 	padding:40px;
 	margin:260px 660px 0;
 	position:relative;
-	background: -moz-linear-gradient(top, #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%); /* FF3.6+ */
+	/*background: -moz-linear-gradient(top, #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%); */
+	background-color:rgba(0,0,0,.7);
 	font-size:34px;
 	text-align:center;
+	color:#FFF;
 }
 .share-wrapper.show {
 	left:0%;
 }
 .share-cont h1 {
 	font-size:40px;
-	font-weight:normal;
+	font-weight:lighter;
 	padding-bottom:20px;
 	border-bottom:solid 1px #999;
 	margin-bottom:20px;
 }
 .share-cont .desc {
-	padding-bottom:30px;
+	padding-bottom:10px;
 	font-size:26px;
 	line-height:125%;
 }
 .share-cont .email-form input[type=email] {
 	font-size:30px;
 	display:block;
-	margin:15px auto 10px;
-	padding:10px 14px;
+	margin:15px 0 0;
+	padding:10px 0;
 	border-radius: 4px;
 	text-align:center;
+	width:100%;
 }
 .share-cont .email-form input[type=checkbox] {
 	width:1.5em; 
@@ -317,6 +320,7 @@ html, body {
 .share-cont .email-form .checkbox-div .checkbox-text {
 	display:inline-block;
 	font-size:30px;
+	margin-top:30px;
 }
 .share-cont .email-form button {
 	font-size:30px;
