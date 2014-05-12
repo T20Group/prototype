@@ -46,12 +46,9 @@
 			$(document).ready(function() {
 				
 				$('.iosSlider').iosSlider({
-					autoSlide:true,
-					autoSlideTimer:10000,
-					autoSlideTransTimer:3000,
 					snapToChildren: true,
 					desktopClickDrag: true,
-					infiniteSlider: true,
+					infiniteSlider: false,
 					snapSlideCenter: true,
 					onSlideChange: slideChange,
 					elasticPullResistance:0.3,
@@ -60,23 +57,34 @@
 					elasticFrictionCoefficient:0.8
 				});
 				
+				$('.next_slide').tapstart(function(e, touch) {
+					$('.iosSlider').iosSlider('nextSlide');
+				});
+				
+				$('.prev_slide').tapstart(function(e, touch) {
+					$('.iosSlider').iosSlider('prevSlide');
+				});
+				
+				$('.prev_slide').hide();
+				
 			});
 			
 			function slideChange(args) {
-			
-				try {
-					//console.log('changed: ' + (args.currentSlideNumber - 1));
-				} catch(err) {
+				var numberOfSlides = args.data.numberOfSlides;			
+				var currentSlideNumber = args.currentSlideNumber;
+				if (currentSlideNumber==1) {
+					$('.prev_slide').fadeOut();
+				} else {
+					$('.prev_slide').fadeIn();
 				}
-								
-				var slideID = args.currentSlideNumber - 1;
-				$('.houseName_txt').text(houses[slideID][0]);
-				$('.houseBeds_txt').text(houses[slideID][2]);
-				$('.houseBaths_txt').text(houses[slideID][3]);
-				$('.houseCars_txt').text(houses[slideID][4]);
-				$(".floorplan-img").attr('src',"images/"+houses[slideID][8]);
+				if (currentSlideNumber==numberOfSlides) {
+					$('.next_slide').fadeOut();
+				} else {
+					$('.next_slide').fadeIn();
+				}
+				
+				
 			}
-			
 			
 		</script>
 	
@@ -89,7 +97,12 @@
 		</script>
         
     	<div class="wrapper">
-		
+			
+            <div style="position:fixed; right:20px; bottom:20px; z-index:200;">
+            	<a href="#" class="prev_slide" style="display:inline-block; color:#FFF; background-color:rgba(0,0,0,.5); padding:30px; margin-right:15px;">Prev</a>
+                <a href="#" class="next_slide" style="display:inline-block; color:#FFF; background-color:rgba(0,0,0,.5); padding:30px;">Next</a>
+            </div>
+            
             <div class = 'responsiveHeight'>
                 <div class = 'inner'>	
                     <div class = 'iosSlider'>
@@ -111,11 +124,33 @@
                 </div>	
             </div><!-- house images -->
             
-			<div id="include-div"></div>
-			<script>
-                $( "#include-div" ).load( "includes/include-in-wrapper.html" );
-            </script>
-            
+			<div id="include-div">
+            	<script type="text/javascript">
+				$(function() {
+					var menuShowing = false;
+					$('#menu').tapstart(function(e, touch) {
+						if (menuShowing) {
+							$('.wrapper').removeClass('wrapper-slide-right');
+							$('.wrapper-black-overlay').addClass('hidden');
+							menuShowing = false;
+						} else {
+							$('.wrapper').addClass('wrapper-slide-right');
+							$('.wrapper-black-overlay').removeClass('hidden');
+							menuShowing = true;
+						}
+					});
+					$('.wrapper-black-overlay').tapstart(function(e, touch) {
+						$('#menu').tapstart();
+					});
+				});
+				</script>
+				<div class="wrapper-black-overlay hidden"></div>
+				
+				<div class="nav-bottom hud">
+					<a id="menu" class="menu_but menu1" href="#"><span class="glyphicon">&#57430;</span> &nbsp;menu</a>
+				</div>
+            </div>
+			            
         </div><!--wrapper-->
 			
 	</body>

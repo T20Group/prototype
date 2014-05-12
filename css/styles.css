@@ -58,7 +58,7 @@ html, body {
 	box-shadow: 0 0 100px 10px #000000;
 }
 .wrapper-slide-right {
-	left:290px;
+	left:320px;
 }
 .wrapper-black-overlay {
 	width:100%;
@@ -124,8 +124,8 @@ html, body {
 	text-align:left;
 }
 .nav-left .menu_but {
-	width:235px;
-	padding:25px 25px 25px 40px;
+	width:300px;
+	padding:25px;
 	text-align:left;
 	background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6+ */
 	font-size:28px;

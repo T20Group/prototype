@@ -24,19 +24,38 @@
 
 <script type="text/javascript">
 $(function() {
-	var finder_clicked = false;
+	if ($.cookie('has_run')!='true') {
+		$('.hud').addClass('hidden');
+	}
+	if ($.cookie('finder_clicked')=='true') {
+		$('#finder').addClass('lower-finder');
+	}
+	var menuOpen = false;
 	$('#btn_finder').tapstart(function(e, touch) {
-		$('#finder-result').toggleClass('opac');
-		$('#btn_right').toggleClass('btn_right_ani');
-		$('#btn_left').toggleClass('btn_left_ani');
-		$('.hud').toggleClass('hidden');
-		if (finder_clicked) {
+		$.cookie('has_run','true');
+		if (menuOpen) {
+			$('#finder-result').removeClass('opac');
+			$('#btn_right').removeClass('btn_right_ani');
+			$('#btn_left').removeClass('btn_left_ani');
+			$('.hud').removeClass('hidden');
+			menuOpen = false;
+		} else {
+			$('#finder-result').addClass('opac');
+			$('#btn_right').addClass('btn_right_ani');
+			$('#btn_left').addClass('btn_left_ani');
+			$('.hud').addClass('hidden');
+			menuOpen = true;
+		}
+		
+		
+		
+		if ($.cookie('finder_clicked')) {
 			$('#finder').toggleClass('lower-finder');
 		} else {
-			finder_clicked = true;
+			$.cookie('finder_clicked', true);
 		}
+		$.cookie('finder_clicked', 'true');
 	});
-	
 })
 </script>
 
