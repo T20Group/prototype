@@ -73,7 +73,7 @@
     height: 40px;
     left: -16px;
     position: absolute;
-    top: 3px;
+    top: 0px;
     transform: rotate(74deg);
     width: 80px;
 }
@@ -175,6 +175,11 @@ $(function() {
 			});
 			$('.btn_right .middletext').addClass(animationClass);
 			
+			$('.btn_right #b_widthDown').bind('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function (e) {
+				$(this).removeClass(animationClass);
+			});
+			$('.btn_right #b_widthDown').addClass(animationClass);
+			
 			show_result();
 		}
 	});
@@ -189,6 +194,11 @@ $(function() {
 				$(this).removeClass(animationClass);
 			});
 			$('.btn_right .middletext').addClass(animationClass);
+			
+			$('.btn_right #b_widthUp').bind('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function (e) {
+				$(this).removeClass(animationClass);
+			});
+			$('.btn_right #b_widthUp').addClass(animationClass);
 			
 			show_result();
 		}
