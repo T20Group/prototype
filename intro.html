@@ -91,10 +91,25 @@
 	</head>
 	
 	<body>
-    	<div id="nav-left-div"></div>
-        <script>
-			$( "#nav-left-div" ).load( "includes/nav-left.html" );
-		</script>
+    	<script type="text/javascript">
+$(function() {
+
+	$('#b_homes').tapstart(function(e, touch) {
+		$.removeCookie('finder_clicked');
+		$.removeCookie('has_run');
+	});
+
+});
+</script>
+<div class="nav-left">
+	<!--<a class="menu_but" href="3dmolecules.html"><span class="glyphicon">&#57377;</span> &nbsp;3D Molecules</a>-->
+	<!--<a class="menu_but" href="3dtable.html"><span class="glyphicon">&#57377;</span> &nbsp;3D Table</a>-->
+    <a class="menu_but" href="intro.html"><span class="glyphicon">&#57385;</span> &nbsp;Intro</a>
+    <a id="b_homes" class="menu_but" href="index.html"><span class="glyphicon">&#57385;</span> &nbsp;Homes</a>
+    <a class="menu_but" href="pinchzoom.html"><span class="glyphicon">&#57385;</span> &nbsp;Pinch Zoom</a>
+    <a class="menu_but" href="#"><span class="glyphicon">&#57385;</span> &nbsp;Change Language</a>
+    <!--<a class="menu_but" href="touch-tracker.html"><span class="glyphicon">&#57377;</span> &nbsp;Touch Points</a>-->
+</div>
         
     	<div class="wrapper">
 			
