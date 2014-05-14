@@ -75,6 +75,13 @@
 				$('.houseBaths_txt').text(houses[slideID][3]);
 				$('.houseCars_txt').text(houses[slideID][4]);
 				$(".floorplan-img").attr('src',"images/"+houses[slideID][8]);
+				
+				var myVideo=document.getElementById("vid_astoria");
+				if (slideID == 0) {
+					myVideo.play();
+				} else {
+					myVideo.pause();
+				}
 			}
 			
 			
