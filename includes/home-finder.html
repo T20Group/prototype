@@ -128,19 +128,6 @@ $(function() {
 	});
 	
 	
-	//results
-	var finder_results = ['finder1.png','finder2.png','finder3.png'];
-	var currFinderResult = 0;
-	
-	show_result = function() {
-		if (currFinderResult+1 == finder_results.length) {
-			currFinderResult = 0;
-		} else {
-			currFinderResult += 1;
-		}
-		$('#finder-result img').attr('src','images/HUD/'+finder_results[currFinderResult]);
-	}
-	
 	//single/double
 	var finder_storeys = 'double';
 	$('#b_single').tapstart(function(e, touch) {
@@ -159,6 +146,23 @@ $(function() {
 		}
 		show_result();
 	});
+	
+	//results
+	var finder_results = ['1.png','2.png'];
+	var currFinderResult = 0;
+	
+	show_result = function() {
+		if (currFinderResult+1 == finder_results.length) {
+			currFinderResult = 0;
+		} else {
+			currFinderResult += 1;
+		}
+		if (finder_storeys == 'double') {
+			$('#finder-result img').attr('src','images/HUD/finder_ds_'+finder_results[currFinderResult]);
+		} else {
+			$('#finder-result img').attr('src','images/HUD/finder_ss_'+finder_results[currFinderResult]);
+		}
+	}
 	
 	//lot width
 	var widths = [8.5, 10, 12.5, 14, 15.2, 16];
@@ -208,7 +212,7 @@ $(function() {
 </script>
 
 <div id="finder-result" class="finder-result easing" style="">
-    <a href="index.html"><img src="images/HUD/finder1.png" alt="finder" width="1212" height="201"></a>
+    <a href="index.html"><img src="images/HUD/finder_ds_1.png" alt="finder" width="1212" height="201"></a>
 </div>
 <!--<img src="images/HUD/btn_finder.png" alt="btn_finder" height="300">-->
 <div id="finder" style="">
