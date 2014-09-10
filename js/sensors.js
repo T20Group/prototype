@@ -46,6 +46,8 @@ pollSensor: pollSensor
  
 var POLL_INTERVAL = 50;
 var SENSOR_FLUCTUATING_TIME = 5000;
+
+var SENSOR_COUNT = 1;
  
 //INIT SENSOR API
 var api = AgentAPI();
@@ -64,7 +66,6 @@ api.pollSensor( function(json) {
 //$('#log').text("polled..", json);
 var intents = JSON.parse(json).intents;
 
-var x = 1;
  
 for(var i=0; i < intents.length;i++) {
 if (intents[i].inrange) {
@@ -72,8 +73,8 @@ if (intents[i].inrange) {
 // $(document).trigger('touchstart');
 clearTimeout(window.sensingMovementStillTimeout);
 //console.log("WE'RE IN RANGE.......................");
-x++;
-$('#log').text("WE'RE "+x+" IN RANGE");
+SENSOR_COUNT++;
+$('#log').text("WE'RE "+SENSOR_COUNT+" IN RANGE");
 startPlayer();
  
 } else {
