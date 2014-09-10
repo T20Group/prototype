@@ -70,7 +70,7 @@ if (intents[i].inrange) {
 // $(document).trigger('touchstart');
 clearTimeout(window.sensingMovementStillTimeout);
 //console.log("WE'RE IN RANGE.......................");
-$('#log').text("WE'RE IN"+ i +"mm RADIUS");
+$('#log').text("WE'RE IN "+ i +"mm RADIUS");
 startPlayer();
  
 } else {
