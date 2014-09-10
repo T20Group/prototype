@@ -75,7 +75,6 @@ clearTimeout(window.sensingMovementStillTimeout);
 //console.log("WE'RE IN RANGE.......................");
 SENSOR_COUNT++;
 $('#log').text("WE'RE "+SENSOR_COUNT+" IN RANGE");
-dump(intents);
 
 startPlayer();
  
@@ -93,3 +92,5 @@ sensor_poll_timeout();
 }
 // START THE TIMEOUT LOOP
 sensor_poll_timeout();
+
+dump(intents);
