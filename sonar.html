@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<title>Sonar</title>
+<meta name = "viewport" content ="width=device-width, minimum-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body { background: #F5FCFF; color: #333666; width:1920px; height:1080px; margin:0; padding:0; }
+</style>
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src='http://127.0.0.1:8080/opensign/agent.js'></script>
+
+<script type="text/javascript">
+$(function() {
+	
+	
+	function setlog(x) {
+		$('#log').text(x);
+	};
+	
+	$('body').click(function() {
+		setlog("omg");
+	});
+	
+	
+});
+
+
+</script>
+
+</head>
+<body>
+	<a style="padding:10px; position:fixed; bottom:5px; left:5px; color:white; background-color:rgba(0,0,0,.5);" href="index.html">back</a>
+
+
+	<div id="log" style="position: absolute; top: 50%; left: 50%;">
+	test
+	</div>
+
+	<pre id="agent-div">
+	</pre>
+	<script>
+        $( "#agent-div" ).load( "http://127.0.0.1:8080/opensign/agent.js" );
+    </script>
+</body>
+</html>
