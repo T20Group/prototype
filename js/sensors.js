@@ -74,8 +74,8 @@ if (intents[i].inrange) {
 clearTimeout(window.sensingMovementStillTimeout);
 //console.log("WE'RE IN RANGE.......................");
 SENSOR_COUNT++;
-//$('#log').text("WE'RE "+SENSOR_COUNT+" IN RANGE");
-$('#log').text(dump(intents));
+$('#log').text("WE'RE "+SENSOR_COUNT+" IN RANGE");
+dump(intents);
 
 startPlayer();
  
