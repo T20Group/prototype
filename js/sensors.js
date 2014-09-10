@@ -44,7 +44,7 @@ pollSensor: pollSensor
  
 //------------------------------------------
  
-var POLL_INTERVAL = 250;
+var POLL_INTERVAL = 50;
 var SENSOR_FLUCTUATING_TIME = 5000;
  
 //INIT SENSOR API
