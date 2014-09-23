@@ -8,7 +8,8 @@
 
 <style>
 .box {
-
+	perspective: 400px;
+	-webkit-perspective: 400px;
 	width: 300px;
 	height: 300px;
 	position: fixed;
@@ -22,13 +23,13 @@
 	height: 40px;
 	padding: 10px;
 	transform-style: preserve-3d;
-	transition: transform 1s;
+	transition: transform .3s;
 	-webkit-transform-style: preserve-3d;
-	-webkit-transition: all .5s;
+	-webkit-transition: all .3s;
 	-moz-transform-style: preserve-3d;
-	-moz-transition: all .5s;
+	-moz-transition: all .3s;
 	background: #bdddf2; 
-	color: black;
+	color: white;
 	font-family: "Helvetica Neue";
 	transform: rotateY(50deg);
 	-webkit-transform: rotateY(50deg);
