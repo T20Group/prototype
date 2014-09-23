@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SpriteSpin</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="spritespin.js"></script>
+  </head>
+  <body>
+    <div class="spritespin"></div>
+    <script type="text/javascript">
+      $('.spritespin').spritespin({
+        source: 'images/bike6x6_big.jpg',
+        width: 480 * 2,
+        height: 327 * 2,
+        frames: 34,
+        framesX: 6,
+        sense: -1,
+        renderer: 'image'
+      });
+    </script>
+    
+	<a style="padding:10px; position:fixed; bottom:5px; left:5px; color:white; background-color:rgba(0,0,0,.5);" href="../index.html">back</a>
+  </body>
+</html>

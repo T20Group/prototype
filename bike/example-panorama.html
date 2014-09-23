@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SpriteSpin</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="spritespin.js"></script>
+  </head>
+  <body>
+    <div class="spritespin"></div>
+    <script type="text/javascript">
+      $('.spritespin').spritespin({
+        source: 'images/panorama.jpg',
+        width: 600,
+        height: 300,
+        module: 'panorama'
+      });
+    </script>
+    
+    <a style="padding:10px; position:fixed; bottom:5px; left:5px; color:white; background-color:rgba(0,0,0,.5);" href="../index.html">back</a>
+  </body>
+</html>
