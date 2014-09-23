@@ -45,7 +45,7 @@ var AgentAPI = function() {
 //------------------------------------------
 
 var POLL_INTERVAL = 50;
-var SENSOR_FLUCTUATING_TIME = 500;
+var SENSOR_FLUCTUATING_TIME = 1000;
 
 //INIT SENSOR API
 var api = AgentAPI();
@@ -61,7 +61,7 @@ function sensor_poll_timeout() {
 // POLL THE SENSOR
 function sensor_poll() {
   api.pollSensor( function(json) {
-    $('#log').text("polled..", json); 
+    //$('#log').text("polled..", json); 
     
     var intents = JSON.parse(json).intents;
     
