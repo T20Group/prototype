@@ -9,14 +9,12 @@
 	.box {
 		perspective: 800px;
 		-webkit-perspective: 800px;
-		-moz-perspective: 800px;
 		width: 300px;
 		height: 300px;
 		position: fixed;
 		top: 30%;
 		left: 7%;
 	}
-	
 	
 	.card {
 		width: 300px;
@@ -26,20 +24,19 @@
 		transition: transform .3s;
 		-webkit-transform-style: preserve-3d;
 		-webkit-transition: all .3s;
-		-moz-transform-style: preserve-3d;
-		-moz-transition: all .3s;
 		background: rgba(188, 215, 255, 0.8); /* #bdddf2 */
 		color: white;
 		font-family: "Helvetica Neue";
 		transform: rotateY(50deg);
-		-webkit-transform: rotateY(50deg);
-		-moz-transform: rotateY(50deg);
+		-webkit-transform: rotateY(40deg);
 		border: 1px solid white;
 	}
 	
 	.card:hover, .touch {
 		background: #e54e28;
 		margin-left: 20px;
+		margin-top: 3px;
+		margin-bottom: -3px;
 		box-shadow: -35px 0px 20px rgba(0,0,0,0.3);
 	}
 	
@@ -89,7 +86,21 @@
 	
 	
 	<style>
-	.orb { position: absolute; border: 1px solid black; height: 50px; width: 50px; left: 30%; top: 20%; background: pink;}
+	#orbit-holder {
+		perspective: 800px;
+		-webkit-perspective: 800px;
+	}
+	
+	.orb { position: absolute; border: 1px solid black; height: 50px; width: 50px; left: 30%; top: 20%; background: pink; 
+/*
+		transform-style: preserve-3d;
+		transition: transform .5s;
+		-webkit-transform-style: preserve-3d;
+		-webkit-transition: all .5s;
+		transform: rotateY(80deg);
+		-webkit-transform: rotateY(90deg);
+*/
+	}
 	.orbA { -webkit-transform: rotate(0deg) translateX(300px) rotate(-0deg); }
 	.orbB { -webkit-transform: rotate(60deg) translateX(300px) rotate(-60deg); }
 	.orbC { -webkit-transform: rotate(120deg) translateX(300px) rotate(-120deg); }
@@ -100,20 +111,177 @@
 	
 	<script type="text/javascript">
 	$(function() {
+		var rad = 300;
+		var rotate = 20;
+		var newRot = 0;
 		
+		
+		
+		
+		$('.orb').click(function() {
+			// new angle
+/* 			$(this).attr('data-deg', deg+rotate); */
+/* 			var newDeg = $(this).attr('data-deg'); */
+/* 			$(this).css({transform: 'rotate('+newDeg+'deg) translateX(300px) rotate(-'+newDeg+'deg)'}); */
+			
+			$('.orb').each(function() {
+				var deg = parseInt( $(this).attr('data-deg') );
+				$(this).attr('data-deg', deg+rotate);
+				newDeg = $(this).attr('data-deg');
+				$(this).css({transform: 'rotate('+newDeg+'deg) translateX(300px) rotate(-'+newDeg+'deg)'});
+				
+			});
+		});
+		
+		
+		
+		
+		// rotation script
+		
+		function moveFoo(newRotation) {
+			var currentMousePos = { x: -1, y: -1 };
+			$('html').mousemove(function(e) {
+				
+				// reset position
+				
+		        currentMousePos.x = e.pageX;
+		        currentMousePos.y = e.pageY;
+		        
+		        var cPos =  $('#center').position();
+		       
+		       $('#posX').text(currentMousePos.x + ' , ' + cPos.left);
+		       $('#posY').text(currentMousePos.y + ' , ' + cPos.top);
+		       
+		       
+		       var xx = parseInt(currentMousePos.x) - parseInt(cPos.left);
+		       var yy = parseInt(currentMousePos.y) - parseInt(cPos.top);
+	
+		       
+		       
+		       var theta = Math.atan2(-yy, xx);
+		
+		       if (theta < 0) {
+				   theta += 2 * Math.PI;
+			   };
+			   
+			   var rotation = Math.round(theta * 180 / Math.PI);
+		       
+		       $('#degree').text( rotation );
+		       
+		       
+		       $('.orb').each(function() {
+					var deg = parseInt( $(this).attr('data-deg') );
+					var id = $(this).attr('data-id');
+	
+					newDeg = (deg+rotation);
+					if (newDeg>=360) {
+						newDeg -= 360;
+					}
+					
+					$(this).css({transform: 'rotate(-'+newDeg+'deg) translateX(300px) rotate('+newDeg+'deg)'}).text(id+':'+deg+':'+newDeg).attr('data-newdeg',newDeg);
+				});
+
+		    });
+		};
+		
+		
+		function getRotation(e) {
+			var currentMousePos = { x: -1, y: -1 };
+			currentMousePos.x = e.pageX;
+	        currentMousePos.y = e.pageY;
+	        
+	        var cPos =  $('#center').position();
+	        
+	        var xx = parseInt(currentMousePos.x) - parseInt(cPos.left);
+			var yy = parseInt(currentMousePos.y) - parseInt(cPos.top);
+			
+			
+			
+			var theta = Math.atan2(-yy, xx);
+			
+			if (theta < 0) {
+			   theta += 2 * Math.PI;
+			};
+			
+			var rotation = theta * 180 / Math.PI;
+			
+			return rotation;
+		}
+		
+		// bind unbind mouse move
+		var newR, newRB, diffR = 0;
+		var currentMousePos = { x: -1, y: -1 };
+		$('html').mousedown(function(e) {
+			
+			// rotation difference
+			
+			newR = getRotation(e);
+			
+			// reset new position
+			currentMousePos.x = e.pageX;
+	        currentMousePos.y = e.pageY;
+	        
+	        var cPos =  $('#center').position();
+	        
+			
+			moveFoo(newR);	
+		})
+		.mouseup(function(e) {
+			newRB = getRotation(e);
+			if (newRB>=360) { newRB -= 360; }
+			if (newR>=360) { newR -= 360; }
+			diffR = parseInt(newR) - parseInt(newRB);
+			if(diffR>0) {
+				$('#newDegree').text('CW');
+			} else {
+				$('#newDegree').text('CCW');
+			};
+			
+			// update all new position
+/*
+			$('.orb').each(function() {
+				
+				var newdeg = $(this).attr('data-newdeg');
+				$(this).attr('data-deg', newDeg);
+				
+			});
+*/
+			
+			$('html').unbind("mousemove");
+		});
+		
+		
+		
+		// auto create items
+		var orbs = 6;
+		
+		for (var i = 1; i<=orbs; i++) {
+			var dataDeg = i*(360/orbs);
+			$('#orbit-holder').append(
+			'<div class="orb" data-deg="'+dataDeg+'" data-newdeg="" data-id="'+i+'">'+i+'</div>'
+			);
+		}
 		
 	});
 	</script>
 	
 	<div id="orbit-holder" style="position: fixed; left: 50%; top: 45%; ">
-		<div class="orb orbA">1</div>
-		<div class="orb orbB">2</div>
-		<div class="orb orbC">3</div>
-		<div class="orb orbD">4</div>
-		<div class="orb orbE">5</div>
-		<div class="orb orbF">6</div>
+<!--
+		<div class="orb orbA" data-deg="0">1</div>
+		<div class="orb orbB" data-deg="60">2</div>
+		<div class="orb orbC" data-deg="120">3</div>
+		<div class="orb orbD" data-deg="180">4</div>
+		<div class="orb orbE" data-deg="240">5</div>
+		<div class="orb orbF" data-deg="300">6</div>
+-->
 	</div>
 	
+	X: <span id="posX">1</span><br/>
+	Y: <span id="posY">2</span><br/>
+	N: <span id="newDegree"></span>º<br/>
+	º: <span id="degree">2</span>º
+	
+	<div id="center" style="position: absolute; top: 50%; left: 50%;">x</div>
 	
   </body>
 </html>
