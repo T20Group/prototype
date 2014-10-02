@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+<title>Sonar</title>
+<meta name = "viewport" content ="width=device-width, minimum-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+html { padding: 0; margin: 0; 
+	perspective: 800px;
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	}
+body { background: #FFF; color: #333666; width:1920px; height:1080px; margin:0; padding:0; text-align: center; overflow: hidden; }
+#sam { 	transform: rotateX(40deg);
+	-webkit-transform: rotateX(70deg); border: 1px solid black;}
+</style>
+<script src="js/jquery-1.8.2.min.js"></script>
+
+<!--
+<script src='http://127.0.0.1:8080/opensign/agent.js'></script>
+<script src="js/sensors-tutorial.js"></script>
+-->
+
+<script type="text/javascript">
+
+$('#refresh').click(function(e) {
+    location.reload();
+    return false;
+});
+
+
+
+// -----------------------------------------------------
+// SENSOR INTENT HANDLING
+// -----------------------------------------------------
+
+var AgentAPI = function() {
+  var API_URL = "http://127.0.0.1:8080/api";
+
+  function sendToApi(endPoint, method, data, callback) {
+    var oReq = new XMLHttpRequest();
+    var url = API_URL + "/" + endPoint;
+    if (!method || (typeof method == "function")) {
+      var method = "GET";
+    }
+    oReq.open(method, url, true);
+    oReq.setRequestHeader("Content-Type", "text/plain");
+    oReq.onload = function(e) {
+      var res = oReq.responseText;
+      if (callback && (typeof callback == "function")) {
+        callback(res);
+      } else {
+       // $('#log').text("RES", res);
+      }
+    }
+    oReq.send(data);
+  }
+
+  function startSensor(callback) {
+    var data = {};
+    data.intent_name = "au.com.sct.agent.plugins.sensors.START_PROXIMITY_SERVICE";
+    sendToApi("intents", "POST", JSON.stringify(data), callback);
+  }
+
+  function pollSensor(callback) {
+    sendToApi("intents", "GET", null, callback);
+  }
+
+  return {
+    startSensor : startSensor,
+    pollSensor: pollSensor
+  }
+};
+
+
+
+//------------------------------------------
+
+var POLL_INTERVAL = 50;
+var SENSOR_FLUCTUATING_TIME = 20000;
+
+//INIT SENSOR API
+var api = AgentAPI();
+api.startSensor();
+
+
+// TIMEOUT FUNCTION FOR SENSOR
+function sensor_poll_timeout() {
+	setTimeout(sensor_poll, POLL_INTERVAL);
+}
+
+// POLL THE SENSOR
+
+function sensor_poll() {
+
+		
+
+  api.pollSensor( function(json) {
+    //$('#log').text("polled..", json); 
+    
+    var intents = JSON.parse(json).intents;
+    
+
+    for(var i=0; i < intents.length;i++) {
+      if (intents[i].inrange) {
+        // in range
+        // $(document).trigger('touchstart');
+        var d = intents[i].reading;
+        clearTimeout(window.sensingMovementStillTimeout);
+/*         $('#log').text("WE'RE IN RANGE ............ " + distance); */
+        //startPlayer();
+        //var msg = "Hey you";
+        /*
+        if (d>=100) { msg = "Hey you! over here!"; }
+        if (d>=70 && d<=99) { msg = "Come closer"; }
+        if (d>=30 && d<=69) { msg = "Come on, closer, closer!"; }
+        if (d<=29) { msg = "Too close, help!"; }
+		*/
+		
+		var r = d/139; // get ratio
+        var h = 500*r;
+        $('#box').css("bottom", h);
+		
+		$('#distance').text(d+' Chocolate bras -->');
+		if (d<=39) { 
+			$('body').css('background-image', 'url(images/rainbow-pony.jpg)');
+		} else {
+			$('body').css('background-image', 'url(images/digifloor.JPG)');	
+		}
+
+      } else {
+        // miss
+        window.sensingMovementStillTimeout = setTimeout(function(){
+        	//$('#log').text("trigger a restart");
+        	//restartPlayer();
+        	window.location.href = "index.html";
+        	
+        }, SENSOR_FLUCTUATING_TIME);
+
+      }
+    } 
+  });
+  sensor_poll_timeout();
+}
+ 
+ 
+function logText(text, x = 0) {
+	$('#log').text(text);
+	$('#distance').text(x);
+} 
+// START THE TIMEOUT LOOP
+sensor_poll_timeout();
+
+</script>
+
+<style>
+#sam { -moz-transition: all .3s; }
+
+#perspectiveHolder {
+	 -webkit-transform: perspective(550px) rotateX(30deg);
+       -moz-transform: perspective(550px) rotateX(30deg);
+       	
+
+	transform-style: preserve-3d;
+	transition: transform .3s;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: all .3s;
+	-moz-transform-style: preserve-3d;
+	-moz-transition: all .3s;
+}
+
+#box { 
+	transform: translateZ(-50px);
+	-webkit-transform: translateZ(-50px);
+	bottom: 150px; 
+}
+</style>
+
+</head>
+<body style="background: white url('images/digifloor.JPG') no-repeat center; background-size: 100%;">
+
+	<div id="log" style="position: absolute; top: 15%; left: 60%; border: px solid black; width: 500px; font-size: 60px; text-transform: uppercase; text-align: left;">
+	
+	</div>
+	
+	<div id="distance" style="position: absolute; top: 10%; right: 10%; border: px solid black; text-transform: uppercase; text-align: left; font-size: 10px; color: white;">
+	Chocolate bra --->
+	</div>
+	
+	<div id="perspectiveHolder" style="height: 1080px; width: 1920px; ">
+		<div id="box" style="width: 1920px; height: 100px; position: absolute; background: rgba(255, 255, 255, 0.35);"></div>
+	</div>
+	
+    <table width="1920px" height="1080px">
+    
+    <tr><td valign="middle">
+<!-- 	    <img id="sam" src="images/uncle-sam.jpg" height="1000"> -->
+    </td></tr>
+    </table>
+	
+	
+	<a style="padding:10px; position:fixed; bottom:5px; left:5px; color:white; background-color:rgba(0,0,0,.5);" href="index.html">back</a>
+	<a id="refresh" style="padding:10px; position:fixed; top:5px; right:5px; color:white; background-color:rgba(0,0,0,.5);" href="#">refresh</a>
+
+	
+</body>
+</html>

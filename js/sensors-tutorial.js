@@ -44,8 +44,8 @@ var AgentAPI = function() {
 
 //------------------------------------------
 
-var POLL_INTERVAL = 30;
-var SENSOR_FLUCTUATING_TIME = 5000;
+var POLL_INTERVAL = 500;
+var SENSOR_FLUCTUATING_TIME = 10000;
 
 //INIT SENSOR API
 var api = AgentAPI();
@@ -56,27 +56,6 @@ api.startSensor();
 function sensor_poll_timeout() {
 	setTimeout(sensor_poll, POLL_INTERVAL);
 }
-
-
-// GAME CONSTANTS
-var P_START = false;
-var P_MAX = 120;
-var P_AREA = 50;
-var P_BUFFER = P_MAX - P_AREA;	
-var p_min = 0;
-
-var p_total = 0;
-var ass_moving = false;
-
-// set balloon size
-function setBalloon(size, target) {
-	if (p_total<10) {
-		p_total = 50;
-	}
-	
-	$('#sam').attr('height', p_total);
-}
-
 
 // POLL THE SENSOR
 
@@ -106,55 +85,13 @@ function sensor_poll() {
         if (d<=29) { msg = "Too close, help!"; }
 		*/
 
-        /*
-        var r = d/139; // get ratio
-        var h = 1000*r;
-        $('#sam').attr('height', h);
-		*/
-		
-        if (!P_START) { // if pump start is false
-	    	if (d>=P_MAX && d<=P_MAX+15) {
-		        p_power = "ok, within hump range, hump now!";
-				P_START = true;
-	        }
-	        
-        } else { // else start pumping
-			if (d>=P_BUFFER && d<P_MAX ) { 			
-				p_min = d;
-				p_power = p_min-P_BUFFER;
-				p_total += p_power;
-				
-				P_START = false;
-			}
-	          
-        } 
-        
-        
-		ass_moving = true;
-		
-		
-		setBalloon(p_total);
-        
-		msg = d;
-	    logText(p_power, msg);
 
       } else {
         // miss
         window.sensingMovementStillTimeout = setTimeout(function(){
         	//$('#log').text("trigger a restart");
         	//restartPlayer();
-        	
-        	ass_moving = false;
-        	msg = "Stand behind the line!";
-        	
-        	
-        	if(!ass_moving) {
-	        	p_total -= 2;
-        	}
-        	
-        	setBalloon(p_total);
-        	
-        	$('#log').text(msg);
+        	window.location.href = "index.html";
         	
         }, SENSOR_FLUCTUATING_TIME);
 

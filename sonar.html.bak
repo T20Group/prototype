@@ -44,10 +44,6 @@ $(function() {
 	<div id="log" style="position: absolute; top: 15%; left: 60%; border: px solid black; width: 500px; font-size: 60px; text-transform: uppercase; text-align: left;">
 	Hey you! come here!
 	</div>
-	
-	<div id="distance" style="position: absolute; top: 10%; right: 10%; border: px solid black; text-transform: uppercase; text-align: left;">
-	Hey you! come here!
-	</div>
 
 	<pre id="agent-div">
 	</pre>
