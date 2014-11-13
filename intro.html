@@ -140,6 +140,14 @@
                             <div class = 'item'>
                             	<img src = 'images/introSlides/slide0.jpg' />
                             </div>
+                            <div class = 'item'>
+                            	<video id="dave" width="1920" height="1080" poster="video/tinkering.jpg">
+                                    <source src="video/dave.webm" type="video/webm">
+                                </video>
+                            </div>
+                            <div class = 'item'>
+                            	<iframe width="1920" height="1080" src="cms_mockups/index.html"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>	
@@ -147,6 +155,19 @@
             
 			<div id="include-div">
             	<script type="text/javascript">
+				$(function() {
+								
+					$("#dave").tapstart(function(e, touch) {
+						var myVideo=document.getElementById("dave");
+						if (myVideo.paused)  {
+						  myVideo.play();
+						} else { 
+						  myVideo.pause(); 
+						}
+					});
+				});		
+
+
 				$(function() {
 					var menuShowing = false;
 					$('#menu').tapstart(function(e, touch) {

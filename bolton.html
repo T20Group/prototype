@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+body {
+	padding:0; 
+	margin:0;
+}
+.rays {
+	height:700px;
+	background-color:#FFF;
+	width:0px;
+	position:absolute;
+	left:50%;
+	top:-50px;
+	transform:rotate(35deg);
+	filter: blur(25px);
+	box-shadow:0 0 50px 10px #FFF; 
+	opacity:0.5;
+	animation: lightanim 2s ease-in-out infinite;
+}
+.ray1 {
+	left:20%;
+	animation: lightanim 2s ease-in-out infinite;
+	box-shadow:0 0 40px 10px #FFF; 
+	height:400px;
+}
+.ray2 {
+	left:30%;
+	animation: lightanim 3s ease-in-out infinite;
+	height:500px;
+	box-shadow:0 0 60px 10px #FFF; 
+}
+.ray3 {
+	left:40%;
+	animation: lightanim 4s ease-in-out infinite;
+	box-shadow:0 0 70px 10px #FFF; 
+	height:900px;
+}
+.ray4 {
+	left:50%;
+	animation: lightanim 5s ease-in-out infinite;
+	height:400px;
+	box-shadow:0 0 30px 10px #FFF; 
+}
+.ray5 {
+	left:60%;
+	animation: lightanim 6s ease-in-out infinite;
+	height:800px;
+	box-shadow:0 0 30px 10px #FFF; 
+}
+.ray6 {
+	left:70%;
+	animation: lightanim 5s ease-in-out infinite;
+	height:600px;
+	box-shadow:0 0 30px 10px #FFF; 
+}
+.ray7 {
+	left:80%;
+	animation: lightanim 3s ease-in-out infinite;
+	height:400px;
+	box-shadow:0 0 60px 60px #FFF; 
+}
+.ray8 {
+	left:90%;
+	animation: lightanim 4s ease-in-out infinite;
+	height:500px;
+	box-shadow:0 0 30px 10px #FFF; 
+}
+.ray9 {
+	left:100%;
+	animation: lightanim 3s ease-in-out infinite;
+	height:500px;
+	box-shadow:0 0 90px 30px #FFF; 
+}
+
+
+@keyframes lightanim {
+	0% { }
+	50% { opacity:1; }
+	100% { }
+}
+
+</style>
+</head>
+<body>
+<div class = 'item item3'>
+	<div class="ray1 rays"></div>
+    <div class="ray2 rays"></div>
+    <div class="ray3 rays"></div>
+    <div class="ray4 rays"></div>
+    <div class="ray5 rays"></div>
+    <div class="ray6 rays"></div>
+    <div class="ray7 rays"></div>
+    <div class="ray8 rays"></div>
+    <div class="ray9 rays"></div>
+    <img src = 'images/bolton.jpg' />
+</div>
+</body>
+</html>
