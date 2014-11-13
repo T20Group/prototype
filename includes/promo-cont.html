@@ -21,17 +21,29 @@ $(function() {
 	$(".b_promo").tapstart(function(e, touch) {
 		$(".promo-wrapper").toggleClass( "show" );
 	});
-				
+		
+	var myVideo=document.getElementById("vid_tinkering");		
+
 	$("#vid_tinkering").tapstart(function(e, touch) {
-		var myVideo=document.getElementById("vid_tinkering");
+
 		if (myVideo.paused)  {
 		  myVideo.play();
 		} else { 
 		  myVideo.pause(); 
-		}
+		};
+		
 		$("#vid_tinkering").toggleClass( "full-video" );
 		$('.nav-bottom').toggleClass('hidden');
 	});
+	
+/*
+	myVideo.addEventListener('ended', function(e)
+	{
+		myVideo.pause();
+		alert('ok');
+	 
+	}, false);
+*/
 });		
 </script>
 
@@ -40,7 +52,7 @@ $(function() {
 		<a class="b-close b_promo" href="#"><span class="glyphicon">&#57480;</span></a>
 		<h1>Our Latest Promotions</h1>
 		<div class="hero">
-			<video id="vid_tinkering" poster="video/tinkering.jpg">
+			<video loop id="vid_tinkering" poster="video/tinkering.jpg">
 				<source src="video/tinkering.webm" type="video/webm">
 			</video>
 		</div>

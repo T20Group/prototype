@@ -92,9 +92,47 @@ $(function() {
 		} else {
 			shareHouse = true;
 			$(".nav-right .b_share").addClass('highlightInOut');
+			
+			$('#shareForm').show();
+			$('#shareResult').hide();
 		}
 		$(".share-wrapper").toggleClass( "show" );
 	});
+	
+	$('#sendShareBtn').tapstart(function(e, touch) {
+		var x = $('#shareInput').val();
+		if (x=="") {
+			alert('Please fill in the email address');	
+		} else {
+			$('#shareResult').show();
+			$('#shareResult > h1').text(x);
+			$('#shareForm').hide();
+			
+			// success
+			ajaxMail(x);
+		}
+	});
+	
+	function ajaxMail(target) {
+				
+		$.ajax({
+				url: "http://www.t20group.com.au/staging/SIM/SIM_DAVE_EMAIL/file.php",
+				type: "POST",
+				data: { n : target },
+				dataType: 'HTML',
+				success: function(result) {
+					//alert(data);
+					$('#shareResult > h1').text(result);
+				},
+			    error: function (XMLHttpRequest, textStatus, errorThrown) {
+				    if (textStatus == 'Unauthorized') {
+				        alert('custom message. Error1: ' + errorThrown);
+				    } else {
+				        alert('custom message. Error2: ' + errorThrown + textStatus);
+				    }
+				}
+			});
+	}
 });		
 </script>
 
@@ -103,20 +141,29 @@ $(function() {
 	<div class="share-cont">
 		<a class="b-close b_share" href="#"><span class="glyphicon">&#57480;</span></a>
 		<h1>Share this home</h1>
-        <div class="desc">Fill in your email and a brochure of this home will be sent instantly</div>
-        <div class="email-form">
-        	<form>
-                <!--<label for="name">Name:</label> <input type="text" name="name" />
-                <label for="email">Email:</label> --><input type="email" name="email" required="required" placeholder="Enter your email" />  
-                <div class="checkbox-div">
-                	<div class="checkbox-text">Join the Simonds VIP List</div>
-                	<div class="squaredTwo">
-                        <input type="checkbox" value="None" id="squaredTwo" name="check" />
-                        <label for="squaredTwo"></label>
-                	</div>
-                </div>
-                <button type="button">Send</button>
-            </form>
-        </div>
+		
+		<div id="shareForm">
+	        <div class="desc">Fill in your email and a brochure of this home will be sent instantly</div>
+	        <div class="email-form">
+	        	<form>
+	                <!--<label for="name">Name:</label> <input type="text" name="name" />
+	                <label for="email">Email:</label> --><input id="shareInput" type="email" name="email" required="required" placeholder="Enter your email" value="brettb@t20group.com.au"/>  
+	                <div class="checkbox-div">
+	                	<div class="checkbox-text">Join the Simonds VIP List</div>
+	                	<div class="squaredTwo">
+	                        <input type="checkbox" value="None" id="squaredTwo" name="check" />
+	                        <label for="squaredTwo"></label>
+	                	</div>
+	                </div>
+	                <button id='sendShareBtn' type="button">Send</button>
+	            </form>
+	        </div>
+		</div> <!-- /shareForm -->
+		<div id="shareResult">
+			<div class="desc">Brochure successfully sent to</div>
+			<h1>email@address.com</h1>
+		</div> <!-- /shareResult -->
+	        
+	             
 	</div>
 </div>

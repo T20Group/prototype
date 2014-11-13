@@ -20,18 +20,30 @@ $(function() {
 	
 	var sharewish = false;
 	$(".b_sharewish").tapstart(function(e, touch) {
+
 		if (sharewish) {
 			$(this).removeClass('highlightInOut');
 			$(".wishlist-share").removeClass("show fadeIn");
+					
+			$('#wishResult').hide();
+			$('#wishForm').show();
+			
 			$(".wishlist-share").addClass("fadeOut");
 			sharewish = false;
+			
 		} else {
 			$(this).addClass('highlightInOut');
+			
+					
+			$('#wishResult').hide();
+			$('#wishForm').show();
+			
+			
 			$(".wishlist-share").removeClass("fadeOut");
 			$(".wishlist-share").addClass("show fadeIn");
 			sharewish = true;
 		}
-		
+				
 	});
 	
 	$(".b_houseSlide").tapstart(function(e, touch) {
@@ -44,6 +56,32 @@ $(function() {
 			$(this).removeClass('fadeOutIn');
 		}
 	});
+	
+	
+	$('#sendWishBtn').tapstart(function(e, touch) {
+		var x = $('#wishInput').val();
+		if (x=="") {
+			alert('Please fill in the email address');	
+		} else {
+			$('#wishResult').show();
+			$('#wishResult > h1').text(x);
+			$('#wishForm').hide();
+			
+			// success
+			ajaxMail(x);
+		}
+	});
+	
+	function ajaxMail(target) {
+				
+		$.ajax({
+				url: "http://www.t20group.com.au/staging/SIM/SIM_DAVE_EMAIL/email.php",
+				type: "POST",
+				data: { n : target },
+				dataType: 'HTML',
+			});
+	}
+	
 });		
 </script>
 
@@ -65,22 +103,30 @@ $(function() {
         <div class="wishlist-share">
             <div class="arrow-l"></div>
             <h1>Share Your Wishlist</h1>
-            <div class="desc">Have your wishlist emailed to you instantly</div>
-            <div class="email-form">
-                <form>
-                    <!--<label for="name">Name:</label> <input type="text" name="name" />
-                    <label for="email">Email:</label> --><input type="email" name="email" required="required" placeholder="Enter your email" />  
-                    <div class="checkbox-div">
-                        <a class="b-close b_sharewish" href="#"><span class="glyphicon">&#57480;</span></a>
-                        <div class="checkbox-text">Join the Simonds VIP List</div>
-                        <div class="squaredTwo">
-                            <input type="checkbox" value="None" id="wishlist_vip" name="wishlist_vip" />
-                            <label for="squaredTwo"></label>
-                        </div>
-                    </div>
-                    <button type="button">Send</button>
-                </form>
-            </div>
+            
+	        <div id="wishForm">
+	            <div class="desc">Have your wishlist emailed to you instantly</div>
+	            <div class="email-form">
+	                <form>
+	                    <!--<label for="name">Name:</label> <input type="text" name="name" />
+	                    <label for="email">Email:</label> --><input id="wishInput" type="email" name="email" required="required" placeholder="Enter your email" value="brettb@t20group.com.au" />  
+	                    <div class="checkbox-div">
+	                        <a class="b-close b_sharewish" href="#"><span class="glyphicon">&#57480;</span></a>
+	                        <div class="checkbox-text">Join the Simonds VIP List</div>
+	                        <div class="squaredTwo">
+	                            <input type="checkbox" value="None" id="wishlist_vip" name="wishlist_vip" />
+	                            <label for="squaredTwo"></label>
+	                        </div>
+	                    </div>
+	                    <button id="sendWishBtn" type="button">Send</button>
+	                </form>
+	            </div>
+	        </div> <!-- /shareWish -->
+	        <div id="wishResult" class="hidden">
+		        <div class="desc">Wishlist successfully sent to</div>
+	        	<h1></h1>
+	        </div> <!-- /shareWishResult -->
+	        
         </div>
         
         <div class="arrow"></div>
