@@ -77,8 +77,12 @@ $(function() {
 		$.ajax({
 				url: "http://www.t20group.com.au/staging/SIM/SIM_DAVE_EMAIL/email.php",
 				type: "POST",
-				data: { n : target },
-				dataType: 'HTML'
+				data: { n : target, from: "DAVELIVE" },
+				dataType: 'HTML',
+				success: function(result) {
+					//alert(data);
+					$('#wishResult > h1').text(result);
+				}
 			});
 	}
 	

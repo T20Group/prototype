@@ -116,9 +116,9 @@ $(function() {
 	function ajaxMail(target) {
 				
 		$.ajax({
-				url: "http://www.t20group.com.au/staging/SIM/SIM_DAVE_EMAIL/file.php",
+				url: "http://www.t20group.com.au/staging/SIM/SIM_DAVE_EMAIL/email.php",
 				type: "POST",
-				data: { n : target },
+				data: { n : target, from: "DAVELIVE" },
 				dataType: 'HTML',
 				success: function(result) {
 					//alert(data);
@@ -140,7 +140,7 @@ $(function() {
 	        <div class="email-form">
 	        	<form>
 	                <!--<label for="name">Name:</label> <input type="text" name="name" />
-	                <label for="email">Email:</label> --><input id="shareInput" type="email" name="email" required="required" placeholder="Enter your email" value="brettb@t20group.com.au"/>  
+	                <label for="email">Email:</label> --><input id="shareInput" type="email" name="email" required="required" placeholder="Enter your email" value="honshio@t20group.com.au"/>  
 	                <div class="checkbox-div">
 	                	<div class="checkbox-text">Join the Simonds VIP List</div>
 	                	<div class="squaredTwo">
