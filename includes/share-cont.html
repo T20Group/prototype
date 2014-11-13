@@ -123,13 +123,6 @@ $(function() {
 				success: function(result) {
 					//alert(data);
 					$('#shareResult > h1').text(result);
-				},
-			    error: function (XMLHttpRequest, textStatus, errorThrown) {
-				    if (textStatus == 'Unauthorized') {
-				        alert('custom message. Error1: ' + errorThrown);
-				    } else {
-				        alert('custom message. Error2: ' + errorThrown + textStatus);
-				    }
 				}
 			});
 	}
